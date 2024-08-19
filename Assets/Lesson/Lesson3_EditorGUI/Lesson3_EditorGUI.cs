@@ -108,7 +108,6 @@ public class Lesson3_EditorGUI : EditorWindow
             scrollView = EditorGUILayout.BeginScrollView(scrollView);
 
 
-
             inputInt = EditorGUILayout.IntField("Int输入：", inputInt);
             //Float、long、double
             inputStr = EditorGUILayout.TextField("字符串输入：", inputStr);
@@ -138,6 +137,8 @@ public class Lesson3_EditorGUI : EditorWindow
         isHideGroup = EditorGUILayout.BeginFoldoutHeaderGroup(isHideGroup, "折叠组：");
         if (isHideGroup)
         {
+            inputStr = EditorGUILayout.TextArea(inputStr);
+
             sliderFloat = EditorGUILayout.Slider("slider:", sliderFloat, 0, 55);
 
             sliderInt = EditorGUILayout.IntSlider("intSlider:", sliderInt, 0, 6);
@@ -157,6 +158,7 @@ public class Lesson3_EditorGUI : EditorWindow
 
         EditorGUILayout.Space(31);//空行
 
+        curve = EditorGUILayout.CurveField("曲线：", curve);
 
         if (GUILayout.Button("点击按钮"))
         {
@@ -164,9 +166,8 @@ public class Lesson3_EditorGUI : EditorWindow
         }
 
         EditorGUILayout.HelpBox("tishi", MessageType.None);
-        EditorGUILayout.HelpBox("tishi", MessageType.Info, false);
+        EditorGUILayout.HelpBox("tishi", MessageType.Info);
 
-        curve = EditorGUILayout.CurveField("曲线：", curve);
 
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.HelpBox("tishi", MessageType.Warning);
