@@ -25,7 +25,7 @@ UnityEditor命名空间的脚本不可以被打包出去，需要放到`Editor`�
 [MenuItem("Unity编辑器拓展/Lesson1/TestFun _u")]      
  `组合键`,不需要下划线     
 [MenuItem("GameObject/Lesson1/HierarchyFun %#&B")]        
- 
+
     % 表示ctrl
     # 表示shift
     & 表示alt   
@@ -108,7 +108,7 @@ UnityEditor命名空间的脚本不可以被打包出去，需要放到`Editor`�
 
 
 ### **EditorGUILayout**
-    
+
 [EditorGUILayout官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/EditorGUILayout.html)
 
 
@@ -131,35 +131,35 @@ EditorGUILayout 则提供了一组适用于编辑器界面的方法。它简化�
 #### 常用UI
 
 
-|方法|写法|备注|效果|
-|---|---|---|---|
-|文本|EditorGUILayout.LabelField("111","22222");||
-|层级选择|layer=EditorGUILayout.LayerField("这是层级",layer);||
-|标签选择|tag=EditorGUILayout.TagField("tag:",tag);||
-|颜色|color = EditorGUILayout.ColorField(new GUIContent("颜色："),color);|| 
-|单选枚举|testType = (E_TestType)EditorGUILayout.EnumPopup("枚举：",testType);||
-|多选枚举|mulType = (E_TestType)EditorGUILayout.EnumFlagsField("枚举多选：", mulType);||
-|整数单选|selectInt = EditorGUILayout.IntPopup("整数单选：", selectInt, strs,ints);|传入int数组和string数组，string[]用来展示或解释整数的含义，选中string时，会选中其对应索引的整数|
-|下拉式按钮|EditorGUILayout.DropdownButton(new GUIContent("按钮"),FocusType.Keyboard)|本身不能提供下拉列表，需要配合逻辑自己实现|
-|连接按钮|EditorGUILayout.LinkButton("按钮")|样式为超链接的按钮，跳转连接逻辑需要自行实现|
-|资源关联|obj = EditorGUILayout.ObjectField("关联Obj：",obj,typeof(GameObject),true) as GameObject;|自定义资源类型,可以点出搜索面板也可以拖动关联，通过第四个参数`allowSceneObjects`确认是否关联当前场景目标|
-|单行输入框|inputInt = EditorGUILayout.IntField("Int输入：", inputInt);|支持int、string、float、double、long|
-|延迟单行输入框|inputInt = EditorGUILayout.DelayedIntField("延迟Int：", inputInt);|输入的数据只有在输入框失去焦点时才会记录，支持int、string、float、double|
-|多行文本输入框|inputStr = EditorGUILayout.TextArea(inputStr);|不设置大小时，默认会根据行数自动拓展高度|
-|多维输入|inputV2 = EditorGUILayout.Vector2Field("V2输入：", inputV2);|支持vector2、3、4，rect、bound。以上都支持int和float|
-|滑动条|sliderFloat = EditorGUILayout.Slider("slider:", sliderFloat, 0, 55);|支持int和float|
-|双块滑动条|EditorGUILayout.MinMaxSlider("双块", ref rightSlider, ref leftSlider, 0, 12);|需要先声明两个float传入|
-|空白组件|EditorGUILayout.Space(31);|夹在组件中间，自定义组件间间隔距离|
-|动画曲线|curve = EditorGUILayout.CurveField("曲线：", curve);||
-|复选框|toggle =EditorGUILayout.Toggle("Toggle：",toggle);||
-|靠左复选框|toggle = EditorGUILayout.ToggleLeft("TogLeft", toggle);||
-|复选折叠组|toggleGroup = EditorGUILayout.BeginToggleGroup("togGroup:",toggleGroup);EditorGUILayout.EndToggleGroup();|被begin和end包裹的代码会被togglegroup置灰，变得无法交互|
-|下拉折叠|isHide = EditorGUILayout.Foldout(isHide, "折叠：", true);||
-|下拉折叠豪华版|||
-|排列布局|||
-|滚动布局|||
-|提示窗|||
-||||
+| 方法           | 写法                                                         | 备注                                                         | 效果             |
+| -------------- | ------------------------------------------------------------ | :----------------------------------------------------------- | ---------------- |
+| 文本           | EditorGUILayout.LabelField("111","22222");                   |                                                              | label.png        |
+| 层级选择       | layer=EditorGUILayout.LayerField("这是层级",layer);          |                                                              | layer.png        |
+| 标签选择       | tag=EditorGUILayout.TagField("tag:",tag);                    |                                                              | tag.png          |
+| 颜色           | color = EditorGUILayout.ColorField(new GUIContent("颜色："),color); |                                                              | color.png        |
+| 单选枚举       | testType = (E_TestType)EditorGUILayout.EnumPopup("枚举：",testType); |                                                              | enumsin.png      |
+| 多选枚举       | mulType = (E_TestType)EditorGUILayout.EnumFlagsField("枚举多选：", mulType); |                                                              | enummul.png      |
+| 整数单选       | selectInt = EditorGUILayout.IntPopup("整数单选：", selectInt, strs,ints); | 传入int数组和string数组，string[]用来展示或解释整数的含义，选中string时，会选中其对应索引的整数 | intpopup.png     |
+| 下拉式按钮     | EditorGUILayout.DropdownButton(new GUIContent("按钮"),FocusType.Keyboard) | 本身不能提供下拉列表，需要配合逻辑自己实现                   | dropdownbtn.png  |
+| 连接按钮       | EditorGUILayout.LinkButton("按钮")                           | 样式为超链接的按钮，跳转连接逻辑需要自行实现                 | linkbtn.png      |
+| 资源关联       | obj = EditorGUILayout.ObjectField("关联Obj：",obj,typeof(GameObject),true) as GameObject; | 自定义资源类型,可以点出搜索面板也可以拖动关联，通过第四个参数`allowSceneObjects`确认是否关联当前场景目标 | objfield.png     |
+| 单行输入框     | inputInt = EditorGUILayout.IntField("Int输入：", inputInt);  | 支持int、string、float、double、long                         | field.png        |
+| 延迟单行输入框 | inputInt = EditorGUILayout.DelayedIntField("延迟Int：", inputInt); | 输入的数据只有在输入框失去焦点时才会记录，支持int、string、float、double | delayfield.png   |
+| 多行文本输入框 | inputStr = EditorGUILayout.TextArea(inputStr);               | 不设置大小时，默认会根据行数自动拓展高度                     | textarea.png     |
+| 多维输入       | inputV2 = EditorGUILayout.Vector2Field("V2输入：", inputV2); | 支持vector2、3、4，rect、bound。以上都支持int和float         | vectorfield.png  |
+| 滑动条         | sliderFloat = EditorGUILayout.Slider("slider:", sliderFloat, 0, 55); | 支持int和float                                               | fslider.png      |
+| 双块滑动条     | EditorGUILayout.MinMaxSlider("双块", ref rightSlider, ref leftSlider, 0, 12); | 需要先声明两个float传入                                      | doubleslider.png |
+| 空白组件       | EditorGUILayout.Space(31);                                   | 夹在组件中间，自定义组件间间隔距离                           |                  |
+| 动画曲线       | curve = EditorGUILayout.CurveField("曲线：", curve);         |                                                              | curve.png        |
+| 复选框         | toggle =EditorGUILayout.Toggle("Toggle：",toggle);           |                                                              | togGroup.png     |
+| 靠左复选框     | toggle = EditorGUILayout.ToggleLeft("TogLeft", toggle);      |                                                              | 同上             |
+| 复选折叠组     | toggleGroup = EditorGUILayout.BeginToggleGroup("togGroup:",toggleGroup);EditorGUILayout.EndToggleGroup(); | 被begin和end包裹的代码false时会被togglegroup置灰，变得无法交互 | 同上             |
+| 下拉折叠       | isHide = EditorGUILayout.Foldout(isHide, "折叠：", true);    |                                                              | foldout.png      |
+| 下拉折叠豪华版 | isHideGroup = EditorGUILayout.BeginFoldoutHeaderGroup(isHideGroup, "折叠组：");EditorGUILayout.EndFoldoutHeaderGroup(); | 比普通的多了选中变色加粗，写法是两行但没有代码包裹效果       | foldout2.png     |
+| 排列布局       | EditorGUILayout.BeginHorizontal();EditorGUILayout.EndHorizontal(); | 被包裹的代码会水平(Horizontal)或者垂直(Vertical)排列         | helpbox.png      |
+| 滚动布局       | scrollView = EditorGUILayout.BeginScrollView(scrollView);EditorGUILayout.EndScrollView(); | 包裹的代码会在滚动视图内，根据窗口大小自动调节               | scrollview.png   |
+| 提示窗         | EditorGUILayout.HelpBox("tishi", MessageType.None);          | MessageType四种类型None、Info、Warning、Error                | helpbox.png      |
+
 
 
 ### GUILayout
@@ -167,7 +167,7 @@ EditorGUILayout 则提供了一组适用于编辑器界面的方法。它简化�
 [GUILayout官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/GUILayout.html)
 
 #### GUILayoutOption
-布局选项，在GUILayout方法入参后面添加的布局约束。   
+布局选项，在GUILayout方法入参后面添加的布局约束。可以应用到EditorGUILayout中   
 如：
 
     layer=EditorGUILayout.LayerField("这是层级",layer,GUILayout.MaxWidth(321),GUILayout.MinHeight(56));
@@ -184,59 +184,42 @@ GUILayout.MinHeight(50);
 GUILayout.MaxWidth(100);    
 GUILayout.MaxHeight(100);   
 - 允许或禁止水平拓展    
-GUILayout.ExpandWidth(true);//允许    
-GUILayout.ExpandHeight(false);//禁止    
-GUILayout.ExpandHeight(true);//允许     
-GUILayout.ExpandHeight(false);//禁止    
+GUILayout.ExpandWidth(true);    
+GUILayout.ExpandHeight(false);
 
 
-### 常用UI
 
-此处只考虑在EditorWindow下的效果
 
-|方法|写法|备注|效果|
-|---|---|---|---|
-|文本|||
-|层级选择|||
-|标签选择|||
-|颜色|||
-|枚举|||
-||||
+### GUILayout组件
 
-| **方法**                | **描述**                                            | **示例代码**                                                     |
-|-------------------------|-----------------------------------------------------|------------------------------------------------------------------|
-| Label()               | 显示一个标签。                                      | GUILayout.Label("This is a label.");                           |
-| Box()                 | 显示一个框，用于分组或描述区域。                    | GUILayout.Box("This is a box.");                               |
-| Button()              | 创建一个按钮。                                      | if (GUILayout.Button("Click Me")) { Debug.Log("Button Clicked"); } |
-| RepeatButton()        | 创建一个重复按钮，按住时会重复触发事件。            | if (GUILayout.RepeatButton("Hold Me")) { Debug.Log("Holding"); } |
-| TextField()           | 创建一个单行文本输入框。                            | string text = GUILayout.TextField(text);                       |
-| TextArea()            | 创建一个多行文本输入框。                            | string text = GUILayout.TextArea(text);                        |
-| PasswordField()       | 创建一个密码输入框，输入内容会以 * 显示。         | string password = GUILayout.PasswordField(password, '*');      |
-| Toggle()              | 创建一个布尔开关。                                  | bool isOn = GUILayout.Toggle(isOn, "Toggle");                  |
-| Toolbar()             | 创建一个工具栏。                                    | selected = GUILayout.Toolbar(selected, new string[] { "A", "B", "C" }); |
-| SelectionGrid()       | 创建一个选择网格。                                  | selected = GUILayout.SelectionGrid(selected, new string[] { "A", "B", "C" }, 2); |
-| HorizontalSlider()    | 创建一个水平滑动条。                                | float value = GUILayout.HorizontalSlider(value, 0, 10);        |
-| VerticalSlider()      | 创建一个垂直滑动条。                                | float value = GUILayout.VerticalSlider(value, 0, 10);          |
-| HorizontalScrollbar() | 创建一个水平滚动条。                                | scrollPosition = GUILayout.HorizontalScrollbar(scrollPosition, 1, 0, 10); |
-| VerticalScrollbar()   | 创建一个垂直滚动条。                                | scrollPosition = GUILayout.VerticalScrollbar(scrollPosition, 1, 0, 10); |
-| Space()               | 添加一个固定大小的空白区域。                        | GUILayout.Space(20);                                           |
-| FlexibleSpace()       | 添加一个可扩展的空白区域。                          | GUILayout.FlexibleSpace();                                     |
-| BeginHorizontal()     | 开始一个水平布局组。                                | GUILayout.BeginHorizontal();                                   |
-| EndHorizontal()       | 结束一个水平布局组。                                | GUILayout.EndHorizontal();                                     |
-| BeginVertical()       | 开始一个垂直布局组。                                | GUILayout.BeginVertical();                                     |
-| EndVertical()         | 结束一个垂直布局组。                                | GUILayout.EndVertical();                                       |
-| BeginArea()           | 开始一个具有特定矩形区域的布局组。                  | GUILayout.BeginArea(new Rect(10, 10, 200, 200));               |
-| EndArea()             | 结束一个区域布局组。                                | GUILayout.EndArea();                                           |
-| BeginScrollView()     | 开始一个滚动视图。                                  | scrollPosition = GUILayout.BeginScrollView(scrollPosition);    |
-| EndScrollView()       | 结束一个滚动视图。                                  | GUILayout.EndScrollView();                                     |
-| Width()               | 设置控件的宽度。                                    | GUILayout.Width(100);                                          |
-| Height()              | 设置控件的高度。                                    | GUILayout.Height(30);                                          |
-| ExpandWidth()         | 控件是否应根据剩余空间扩展其宽度。                  | GUILayout.ExpandWidth(true);                                   |
-| ExpandHeight()        | 控件是否应根据剩余空间扩展其高度。                  | GUILayout.ExpandHeight(true);                                  |
-| MaxWidth()            | 控件的最大宽度。                                    | GUILayout.MaxWidth(200);                                       |
-| MaxHeight()           | 控件的最大高度。                                    | GUILayout.MaxHeight(50);                                       |
-| MinWidth()            | 控件的最小宽度。                                    | GUILayout.MinWidth(50);                                        |
-| MinHeight()           | 控件的最小高度。                                    | GUILayout.MinHeight(20);                                       |
+
+
+| **方法**              | **描述**                                  | **示例代码**                                                 |
+| --------------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| Label()               | 显示一个标签。                            | GUILayout.Label("This is a label.");                         |
+| Box()                 | 显示一个框，用于分组或描述区域。          | GUILayout.Box("This is a box.");                             |
+| `Button()`            | 创建一个按钮。                            | if (GUILayout.Button("Click Me")) { Debug.Log("Button Clicked"); } |
+| `RepeatButton()`      | 创建一个重复按钮，按住时会重复触发事件。  | if (GUILayout.RepeatButton("Hold Me")) { Debug.Log("Holding"); } |
+| TextField()           | 创建一个单行文本输入框。                  | string text = GUILayout.TextField(text);                     |
+| TextArea()            | 创建一个多行文本输入框。                  | string text = GUILayout.TextArea(text);                      |
+| `PasswordField()`     | 创建一个密码输入框，输入内容会以 * 显示。 | string password = GUILayout.PasswordField(password, '*');    |
+| Toggle()              | 创建一个布尔开关。                        | bool isOn = GUILayout.Toggle(isOn, "Toggle");                |
+| Toolbar()             | 创建一个工具栏。                          | selected = GUILayout.Toolbar(selected, new string[] { "A", "B", "C" }); |
+| SelectionGrid()       | 创建一个选择网格。                        | selected = GUILayout.SelectionGrid(selected, new string[] { "A", "B", "C" }, 2); |
+| HorizontalSlider()    | 创建一个水平滑动条。                      | float value = GUILayout.HorizontalSlider(value, 0, 10);      |
+| VerticalSlider()      | 创建一个垂直滑动条。                      | float value = GUILayout.VerticalSlider(value, 0, 10);        |
+| HorizontalScrollbar() | 创建一个水平滚动条。                      | scrollPosition = GUILayout.HorizontalScrollbar(scrollPosition, 1, 0, 10); |
+| VerticalScrollbar()   | 创建一个垂直滚动条。                      | scrollPosition = GUILayout.VerticalScrollbar(scrollPosition, 1, 0, 10); |
+| Space()               | 添加一个固定大小的空白区域。              | GUILayout.Space(20);                                         |
+| FlexibleSpace()       | 添加一个可扩展的空白区域。                | GUILayout.FlexibleSpace();                                   |
+| BeginHorizontal()     | 开始一个水平布局组。                      | GUILayout.BeginHorizontal();                                 |
+| EndHorizontal()       | 结束一个水平布局组。                      | GUILayout.EndHorizontal();                                   |
+| BeginVertical()       | 开始一个垂直布局组。                      | GUILayout.BeginVertical();                                   |
+| EndVertical()         | 结束一个垂直布局组。                      | GUILayout.EndVertical();                                     |
+| BeginArea()           | 开始一个具有特定矩形区域的布局组。        | GUILayout.BeginArea(new Rect(10, 10, 200, 200));             |
+| EndArea()             | 结束一个区域布局组。                      | GUILayout.EndArea();                                         |
+| BeginScrollView()     | 开始一个滚动视图。                        | scrollPosition = GUILayout.BeginScrollView(scrollPosition);  |
+| EndScrollView()       | 结束一个滚动视图。                        | GUILayout.EndScrollView();                                   |
 
 
 
