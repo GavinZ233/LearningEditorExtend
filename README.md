@@ -222,6 +222,40 @@ GUILayout.ExpandHeight(false);
 | EndScrollView()       | 结束一个滚动视图。                        | GUILayout.EndScrollView();                                   |
 
 
+### EditorGUIUtility
+
+[EditorGUIUtility官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/EditorGUIUtility.html)       
+
+工具类加载的资源需要在一级文件夹`Editor Default Resources`内寻找。    
+
+
+| **方法/属性**                       | **描述**                                                 | **示例**                                                     |  
+| ----------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
+| labelWidth                        | 控件标签的宽度。                                         | EditorGUIUtility.labelWidth = 100;                         |
+| fieldWidth                        | 控件字段的宽度。                                         | EditorGUIUtility.fieldWidth = 50;                          |
+| LookLikeControls()                | 设置标签和字段的宽度，用于绘制控件。                     | EditorGUIUtility.LookLikeControls(100, 50);                |
+| singleLineHeight                  | 返回标准单行高度。                                       | float height = EditorGUIUtility.singleLineHeight;          |
+| standardVerticalSpacing           | 控件之间的标准垂直间距。                                 | float spacing = EditorGUIUtility.standardVerticalSpacing;  |
+| currentViewWidth                  | 当前窗口的宽度。                                         | float width = EditorGUIUtility.currentViewWidth;           |
+| AddCursorRect()                   | 将鼠标光标矩形区域添加到事件队列中。                     | EditorGUIUtility.AddCursorRect(rect, MouseCursor.ResizeHorizontal); |
+| PingObject()                      | 在编辑器中高亮显示并选中对象。                           | EditorGUIUtility.PingObject(myObject);                     |
+| IconContent()                     | 获取一个带有图标的 GUIContent。                          | GUIContent icon = EditorGUIUtility.IconContent("d_UnityEditor.ConsoleWindow"); |
+| SetIconForObject()                | 为指定对象设置图标。                                     | EditorGUIUtility.SetIconForObject(myObject, myIcon);       |
+| GetIconForObject()                | 获取指定对象的图标。                                     | Texture2D icon = EditorGUIUtility.GetIconForObject(myObject); |
+| ObjectContent()                   | 获取对象的 GUIContent。                                  | GUIContent content = EditorGUIUtility.ObjectContent(myObject, typeof(GameObject)); |
+| SystemCopyBuffer                  | 获取或设置系统剪贴板的内容。                             | EditorGUIUtility.systemCopyBuffer = "Copied text";         |
+| DrawColorSwatch()                 | 绘制颜色样本到屏幕上。                                   | EditorGUIUtility.DrawColorSwatch(rect, Color.red);         |
+| TextContent()                     | 创建一个包含给定文本的 GUIContent。                      | GUIContent text = EditorGUIUtility.TextContent("Label text"); |
+| LoadRequired()                    | 加载资源需要填写后缀，不存在的资源`报错`                  | Texture2D tex = EditorGUIUtility.LoadRequired("Icons/MyIcon.png") as Texture2D; |
+| Load()                            | 加载资源需要填写后缀，不存在的资源`返空`                   | Texture2D tex = EditorGUIUtility.Load("Assets/MyIcon.png") as Texture2D; |
+| GetBuiltinSkin()                  | 获取内置的 GUI 皮肤。                                    | GUISkin skin = EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector); |
+| FindTexture()                     | 根据名称查找内置或自定义资源中的纹理。                   | Texture2D texture = EditorGUIUtility.FindTexture("d_console.warnicon"); |
+| EditArraySizeControl()            | 编辑器中的数组大小控件。                                 | EditorGUIUtility.EditArraySizeControl(rect, arrayProp);    |
+| RepaintAllViews()                 | 重新绘制所有编辑器窗口。                                 | EditorGUIUtility.RepaintAllViews();                        |
+| IsDisplayReferencedByStyleSheet() | 检查样式表中是否引用了特定的显示（通常用于 UIBuilder）。 | bool referenced = EditorGUIUtility.IsDisplayReferencedByStyleSheet(display); |
+| LoadIconRequired()                | 从编辑器默认资源中加载图标，如果图标未找到则抛出异常。   | Texture2D icon = EditorGUIUtility.LoadIconRequired("d_console.warnicon"); |
+
+
 
 
 
