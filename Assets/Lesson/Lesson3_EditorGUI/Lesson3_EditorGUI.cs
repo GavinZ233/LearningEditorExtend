@@ -176,7 +176,13 @@ public class Lesson3_EditorGUI : EditorWindow
 
         EditorGUILayout.EndHorizontal();
 
-
+        if (Event.current.type==EventType.ExecuteCommand)
+        {
+            if (Event.current.commandName== "事件发送")
+            {
+                Debug.Log("收到Lesson13的事件");
+            }
+        }
 
 
     }

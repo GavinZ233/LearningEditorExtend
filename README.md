@@ -162,7 +162,7 @@ EditorGUILayout 则提供了一组适用于编辑器界面的方法。它简化�
 
 
 
-### GUILayout
+### **GUILayout**
 
 [GUILayout官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/GUILayout.html)
 
@@ -190,7 +190,7 @@ GUILayout.ExpandHeight(false);
 
 
 
-### GUILayout组件
+### **GUILayout组件**
 
 
 
@@ -222,66 +222,100 @@ GUILayout.ExpandHeight(false);
 | EndScrollView()       | 结束一个滚动视图。                        | GUILayout.EndScrollView();                                   |
 
 
-### EditorGUIUtility
+### **EditorGUIUtility**
 
 [EditorGUIUtility官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/EditorGUIUtility.html)       
 
 工具类加载的资源需要在一级文件夹`Editor Default Resources`内寻找。    
 
+仅记录常用
 
-| **方法/属性**                       | **描述**                                                 | **示例**                                                     |  
-| ----------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
-| labelWidth                        | 控件标签的宽度。                                         | EditorGUIUtility.labelWidth = 100;                         |
-| fieldWidth                        | 控件字段的宽度。                                         | EditorGUIUtility.fieldWidth = 50;                          |
-| LookLikeControls()                | 设置标签和字段的宽度，用于绘制控件。                     | EditorGUIUtility.LookLikeControls(100, 50);                |
-| singleLineHeight                  | 返回标准单行高度。                                       | float height = EditorGUIUtility.singleLineHeight;          |
-| standardVerticalSpacing           | 控件之间的标准垂直间距。                                 | float spacing = EditorGUIUtility.standardVerticalSpacing;  |
-| currentViewWidth                  | 当前窗口的宽度。                                         | float width = EditorGUIUtility.currentViewWidth;           |
-| AddCursorRect()                   | 将鼠标光标矩形区域添加到事件队列中。                     | EditorGUIUtility.AddCursorRect(rect, MouseCursor.ResizeHorizontal); |
-| PingObject()                      | 在编辑器中高亮显示并选中对象。                           | EditorGUIUtility.PingObject(myObject);                     |
-| IconContent()                     | 获取一个带有图标的 GUIContent。                          | GUIContent icon = EditorGUIUtility.IconContent("d_UnityEditor.ConsoleWindow"); |
-| SetIconForObject()                | 为指定对象设置图标。                                     | EditorGUIUtility.SetIconForObject(myObject, myIcon);       |
-| GetIconForObject()                | 获取指定对象的图标。                                     | Texture2D icon = EditorGUIUtility.GetIconForObject(myObject); |
-| ObjectContent()                   | 获取对象的 GUIContent。                                  | GUIContent content = EditorGUIUtility.ObjectContent(myObject, typeof(GameObject)); |
-| SystemCopyBuffer                  | 获取或设置系统剪贴板的内容。                             | EditorGUIUtility.systemCopyBuffer = "Copied text";         |
-| DrawColorSwatch()                 | 绘制颜色样本到屏幕上。                                   | EditorGUIUtility.DrawColorSwatch(rect, Color.red);         |
-| TextContent()                     | 创建一个包含给定文本的 GUIContent。                      | GUIContent text = EditorGUIUtility.TextContent("Label text"); |
-| LoadRequired()                    | 加载资源需要填写后缀，不存在的资源`报错`                  | Texture2D tex = EditorGUIUtility.LoadRequired("Icons/MyIcon.png") as Texture2D; |
-| Load()                            | 加载资源需要填写后缀，不存在的资源`返空`                   | Texture2D tex = EditorGUIUtility.Load("Assets/MyIcon.png") as Texture2D; |
-| GetBuiltinSkin()                  | 获取内置的 GUI 皮肤。                                    | GUISkin skin = EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector); |
-| FindTexture()                     | 根据名称查找内置或自定义资源中的纹理。                   | Texture2D texture = EditorGUIUtility.FindTexture("d_console.warnicon"); |
-| EditArraySizeControl()            | 编辑器中的数组大小控件。                                 | EditorGUIUtility.EditArraySizeControl(rect, arrayProp);    |
-| RepaintAllViews()                 | 重新绘制所有编辑器窗口。                                 | EditorGUIUtility.RepaintAllViews();                        |
-| IsDisplayReferencedByStyleSheet() | 检查样式表中是否引用了特定的显示（通常用于 UIBuilder）。 | bool referenced = EditorGUIUtility.IsDisplayReferencedByStyleSheet(display); |
-| LoadIconRequired()                | 从编辑器默认资源中加载图标，如果图标未找到则抛出异常。   | Texture2D icon = EditorGUIUtility.LoadIconRequired("d_console.warnicon"); |
+| **方法/属性**      | **描述**                                 | **示例**                                                     |
+| ------------------ | ---------------------------------------- | ------------------------------------------------------------ |
+| LoadRequired()     | 加载资源需要填写后缀，不存在的资源`报错` | Texture2D tex = EditorGUIUtility.LoadRequired("Icons/MyIcon.png") as Texture2D; |
+| Load()             | 加载资源需要填写后缀，不存在的资源`返空` | Texture2D tex = EditorGUIUtility.Load("Assets/MyIcon.png") as Texture2D; |
+| ShowObjectPicker() | 弹出目标资源搜索框                       | EditorGUIUtility.ShowObjectPicker<Texture>(null,true,"pdf",0); |
+| PingObject()       | 在编辑器中高亮显示并选中对象。           | EditorGUIUtility.PingObject(myObject);                       |
+| AddCursorRect()    | 将鼠标光标矩形区域添加到事件队列中。     | EditorGUIUtility.AddCursorRect(rect, MouseCursor.ResizeHorizontal); |
+| FindTexture()      | 根据名称查找内置或自定义资源中的纹理。   | Texture2D texture = EditorGUIUtility.FindTexture("d_console.warnicon"); |
+| DrawColorSwatch()  | 将颜色和透明的信息展示成一张图           | color=EditorGUILayout.ColorField(new GUIContent("颜色"),color,true,true,true); |
+| DrawCurveSwatch()  | 将曲线展示成一张图                       | curve = EditorGUILayout.CurveField("曲线",curve);            |
+| GUIToScreenPoint() | 将一个点从GUI转换到屏幕空间              | Vector2 screenPos = EditorGUIUtility.GUIToScreenPoint(v);    |
+| ScreenToGUIPoint() | 将屏幕空间的点转换到GUI空间              | Vector2 convertedGUIPos = GUIUtility.ScreenToGUIPoint(screenPos); |
 
 
+  屏幕空间y坐标从窗口顶部边缘的零到窗口底部边缘的最大值不等，在坐标转换时会有一定的偏移。
+
+### **Selection**
 
 
+| **方法/属性**      | **描述**                             | **示例代码**                                                 |
+| ------------------ | ------------------------------------ | ------------------------------------------------------------ |
+| `activeObject`     | 获取或设置当前选中的第一个对象。     | Selection.activeObject = myGameObject;                       |
+| `activeGameObject` | 获取或设置当前选中的第一个游戏对象。 | Selection.activeGameObject = myGameObject;                   |
+| activeTransform    | 获取或设置当前选中的第一个变换对象。 | Selection.activeTransform = myTransform;                     |
+| objects            | 获取或设置当前选中的对象数组。       | Selection.objects = new Object[] { obj1, obj2 };             |
+| count              | 获取当前选中的object总数             | Selection.count                                              |
+| `gameObjects`      | 获取或设置当前选中的游戏对象数组。   | Selection.gameObjects = new GameObject[] { go1, go2 };       |
+| transforms         | 获取或设置当前选中的变换对象数组。   | Selection.transforms = new Transform[] { trans1, trans2 };   |
+| assetGUIDs         | 获取当前选中的资源的 GUID 数组。     | string[] guids = Selection.assetGUIDs;                       |
+| `Contains()`       | 检查当前选中对象是否包含指定对象。   | bool isSelected = Selection.Contains(myObject);              |
+| `GetFiltered()`    | 获取过滤后的选中对象数组。           | Transform[] transforms = Selection.GetFiltered<Transform>(SelectionMode.Editable); |
+| selectionChanged   | 当选中的对象改变时触发的事件。       | Selection.selectionChanged += MySelectionChangedMethod;      |
 
-- **EditorGUIUtility公共类**
+其中GetFiltered方法需要传入的筛选枚举     
 
-  - **EditorGUIUtility是什么**
+| **枚举**                                                     | **描述**                    |
+| ------------------------------------------------------------ | --------------------------- |
+| Unfiltered                                                   | 不过滤                      |
+| TopLevel                                                     | 仅返回父对象                |
+| Deep                                                         | 返回选择内容及其子对象      |
+| ExcludePrefab                                                | 排除预制体                  |
+| Editable                                                     | 只返回可编辑的内容          |
+| Assets                                                       | 仅返回Asset目录的资产对象   |
+| DeepAssets                                                   | 同时获取子文件夹的内容      |
 
-  - **资源加载**
+> 默认的变换选择模式为：SelectionMode.TopLevel | SelectionMode.ExcludePrefab | SelectionMode.Editable。
 
-  - **搜索框查询、对象选中提示**
-
-  - **窗口事件传递、坐标转换**
-
-  - **指定区域使用对应鼠标指针**
-
-  - **绘制色板、绘制曲线**
-
-### **Selection公共类**
-
-- **Selection是什么**
-
-- **常用静态成员**
-
-- **常用静态方法**
 
 ### **Event公共类**
+[Event官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Event.html)       
+
+## 常用属性
+
+| **属性**           | **描述**                                                                         |
+|-------------------|----------------------------------------------------------------------------------|
+| type            | 事件的类型（例如，EventType.MouseDown、EventType.KeyDown）。                  |
+| mousePosition   | 鼠标指针的位置。                                                                 |
+| delta           | 鼠标滚轮滚动的增量。                                                             |
+| button          | 鼠标按键（0：左键，1：右键，2：中键）。                                          |
+| modifiers       | 当前按下的修饰键（如 EventModifiers.Shift、EventModifiers.Control）。         |
+| keyCode         | 按下的键的键码。                                                                 |
+| character       | 输入的字符。                                                                     |
+
+## 常用方法
+
+| **方法**                     | **描述**                                           |
+|-----------------------------|--------------------------------------------------|
+| Use()                     | 标记事件已被使用。                                 |
+| GetTypeForControl(int controlID) | 获取指定控件的事件类型。                     |
+
+## 事件类型
+
+EventType 枚举包含多种事件类型，包括但不限于：
+
+| **事件类型**    | **描述**                                   |
+|-----------------|--------------------------------------------|
+| MouseDown     | 鼠标按键按下。                             |
+| MouseUp       | 鼠标按键抬起。                             |
+| MouseMove     | 鼠标移动。                                 |
+| KeyDown       | 键盘按键按下。                             |
+| KeyUp         | 键盘按键抬起。                             |
+| ScrollWheel   | 鼠标滚轮滚动。                             |
+| Repaint       | 窗口重绘事件。                             |
+
+
+
 
 ### **Inspector窗口拓展**
 
