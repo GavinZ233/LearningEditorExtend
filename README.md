@@ -10,13 +10,13 @@ UnityEditor命名空间的脚本不可以被打包出去，需要放到`Editor`�
 
 
 
-| 作用 | 写法  |  备注   |预览图|
-| --- | ---  |  ---|---|
-|  `编辑器顶部菜单栏`    |       [MenuItem("GavinTools/CreatLesson")]     ||
-| 顶部菜单的GameObject和`Hierarchy右键菜单`     |      [MenuItem("GameObject/Lesson1/HierarchyFun")]|     ||
-|  `Project右键菜单`    |      [MenuItem("Assets/Lesson1/AssetFun")] |    ||
-|  `脚本右键菜单`    |     [MenuItem("CONTEXT/Lesson1_Test/Lesson1/BehaviourFun")]|    ||
-|  顶部菜单的Component为目标GameObject添加脚本    | [AddComponentMenu("Unity编辑器拓展/添加脚本/Lesson1_Test")]|    using UnityEngine; 不支持快捷键 ||
+| 作用                                        | 写法                                                        | 备注                            | 预览图 |
+| ------------------------------------------- | ----------------------------------------------------------- | ------------------------------- | ------ |
+| `编辑器顶部菜单栏`                          | [MenuItem("GavinTools/CreatLesson")]                        |                                 |
+| 顶部菜单的GameObject和`Hierarchy右键菜单`   | [MenuItem("GameObject/Lesson1/HierarchyFun")]               |                                 |        |
+| `Project右键菜单`                           | [MenuItem("Assets/Lesson1/AssetFun")]                       |                                 |        |
+| `脚本右键菜单`                              | [MenuItem("CONTEXT/Lesson1_Test/Lesson1/BehaviourFun")]     |                                 |        |
+| 顶部菜单的Component为目标GameObject添加脚本 | [AddComponentMenu("Unity编辑器拓展/添加脚本/Lesson1_Test")] | using UnityEngine; 不支持快捷键 |        |
 
 ### **快捷键**    
 
@@ -43,68 +43,68 @@ UnityEditor命名空间的脚本不可以被打包出去，需要放到`Editor`�
 
 #### 常用变量    
 
-| 名称 | 作用 | 备注 |      
-| ---- | --- | ---|  
-|autoRepaintOnSceneChange|窗口是否会在场景每次发生变化时自动重绘？||
-|docked|是否停靠|停靠就是拖入编辑器其他模块里|
-|minSize|限制窗口最小大小|position设置后此限制会失效|
-|position|设置位置与大小||
-|titleContent|设置窗口标题|可添加图标|
-|hasUnsavedChanges|关闭窗口前是否提示用户保存信息||
-|saveChangesMessage|提示保存信息的提示词||
-|wantsMouseEnterLeaveWindow|如果设置为 true，则每当鼠标进入或离开窗口时，该窗口都会收到一次 OnGUI 调用|
+| 名称                       | 作用                                                                       | 备注                         |
+| -------------------------- | -------------------------------------------------------------------------- | ---------------------------- |
+| autoRepaintOnSceneChange   | 窗口是否会在场景每次发生变化时自动重绘？                                   |                              |
+| docked                     | 是否停靠                                                                   | 停靠就是拖入编辑器其他模块里 |
+| minSize                    | 限制窗口最小大小                                                           | position设置后此限制会失效   |
+| position                   | 设置位置与大小                                                             |                              |
+| titleContent               | 设置窗口标题                                                               | 可添加图标                   |
+| hasUnsavedChanges          | 关闭窗口前是否提示用户保存信息                                             |                              |
+| saveChangesMessage         | 提示保存信息的提示词                                                       |                              |
+| wantsMouseEnterLeaveWindow | 如果设置为 true，则每当鼠标进入或离开窗口时，该窗口都会收到一次 OnGUI 调用 |
 
 #### 静态变量    
-| 名称 | 作用 | 备注 |    
-| ---- | --- | ---|  
-|focusedWindow|当前已获得键盘焦点的 EditorWindow。（只读）||
-|mouseOverWindow|当前在鼠标光标下的 EditorWindow。（只读）||
+| 名称            | 作用                                        | 备注 |
+| --------------- | ------------------------------------------- | ---- |
+| focusedWindow   | 当前已获得键盘焦点的 EditorWindow。（只读） |      |
+| mouseOverWindow | 当前在鼠标光标下的 EditorWindow。（只读）   |      |
 
 #### 静态函数
 
 
-| 名称 | 作用 | 备注 |     
-| ---- | --- | ---| 
-|CreateWinow|创建窗口|
-|FocusWindowIfItsOpen|聚焦发现的第一个指定类型的 EditorWindow（如果已打开）||
-|GetWindow|返回当前屏幕上第一个 t 类型的 EditorWindow。|没有会自动创建|
-|GetWindowWithRect|返回一个指定位置、大小的窗口|没有会自动创建|
-|HasOpenInstances|检查T类型编辑器窗口是否已打开||
+| 名称                 | 作用                                                  | 备注           |
+| -------------------- | ----------------------------------------------------- | -------------- |
+| CreateWinow          | 创建窗口                                              |
+| FocusWindowIfItsOpen | 聚焦发现的第一个指定类型的 EditorWindow（如果已打开） |                |
+| GetWindow            | 返回当前屏幕上第一个 t 类型的 EditorWindow。          | 没有会自动创建 |
+| GetWindowWithRect    | 返回一个指定位置、大小的窗口                          | 没有会自动创建 |
+| HasOpenInstances     | 检查T类型编辑器窗口是否已打开                         |                |
 
 
 #### 成员函数
 
-| 名称 | 作用 | 备注 |     
-| ---- | --- | ---|  
-|Show|显示弹窗||
-|ShowModal|以独立模块打开弹窗，不可停靠||
-|Focus|全体目光向我看齐||
-|Repaint|重绘窗口|
-|Close|关闭窗口||
-|SaveChanges|点击确认保存时|继承的虚函数，需要自己写逻辑
-|DiscardChanges|点击取消取消保存|同上
+| 名称           | 作用                         | 备注                         |
+| -------------- | ---------------------------- | ---------------------------- |
+| Show           | 显示弹窗                     |                              |
+| ShowModal      | 以独立模块打开弹窗，不可停靠 |                              |
+| Focus          | 全体目光向我看齐             |                              |
+| Repaint        | 重绘窗口                     |
+| Close          | 关闭窗口                     |                              |
+| SaveChanges    | 点击确认保存时               | 继承的虚函数，需要自己写逻辑 |
+| DiscardChanges | 点击取消取消保存             | 同上                         |
 
 ####  周期方法
 
-| 名称 | 作用 | 备注 |     
-| ---- | --- | ---|  
-|Awake||同Monobehaviour|
-|OnEnable|||
-|OnGUI|||
-|Update|||
-|OnDisable|||
-|OnDestroy|||
+| 名称      | 作用 | 备注            |
+| --------- | ---- | --------------- |
+| Awake     |      | 同Monobehaviour |
+| OnEnable  |      |                 |
+| OnGUI     |      |                 |
+| Update    |      |                 |
+| OnDisable |      |                 |
+| OnDestroy |      |                 |
 
 ####  窗口事件回调
 
-| 名称 | 作用 | 备注 |     
-| ---- | --- | ---|  
-|OnFocus|当窗口获得焦点时调用||
-|OnLostFocus|当窗口失去焦点时调用||
-|OnProjectChange|当项目资源发生变化时调用||
-|OnInspectorUpdate|在Inspector面板更新时调用||
-|OnSelectionChange|当选择的对象发生变化时调用||
-|OnHierarchyChange|当Hierarchy发生变化时调用||
+| 名称              | 作用                       | 备注 |
+| ----------------- | -------------------------- | ---- |
+| OnFocus           | 当窗口获得焦点时调用       |      |
+| OnLostFocus       | 当窗口失去焦点时调用       |      |
+| OnProjectChange   | 当项目资源发生变化时调用   |      |
+| OnInspectorUpdate | 在Inspector面板更新时调用  |      |
+| OnSelectionChange | 当选择的对象发生变化时调用 |      |
+| OnHierarchyChange | 当Hierarchy发生变化时调用  |      |
 
 
 ### **EditorGUILayout**
@@ -131,34 +131,34 @@ EditorGUILayout 则提供了一组适用于编辑器界面的方法。它简化�
 #### 常用UI
 
 
-| 方法           | 写法                                                         | 备注                                                         | 效果                                                         |
-| -------------- | ------------------------------------------------------------ | :----------------------------------------------------------- | ------------------------------------------------------------ |
-| 文本           | EditorGUILayout.LabelField("111","22222");                   |                                                              |    ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/label.png)                                                 |
-| 层级选择       | layer=EditorGUILayout.LayerField("这是层级",layer);          |                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/layer.png)                                                    |
-| 标签选择       | tag=EditorGUILayout.TagField("tag:",tag);                    |                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/tag.png)                                                      |
-| 颜色           | color = EditorGUILayout.ColorField(new GUIContent("颜色："),color); |                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/color.png) |
-| 单选枚举       | testType = (E_TestType)EditorGUILayout.EnumPopup("枚举：",testType); |                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/enumsin.png)                                                  |
-| 多选枚举       | mulType = (E_TestType)EditorGUILayout.EnumFlagsField("枚举多选：", mulType); |                                                              |![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/enummul.png )                                                 |
-| 整数单选       | selectInt = EditorGUILayout.IntPopup("整数单选：", selectInt, strs,ints); | 传入int数组和string数组，string[]用来展示或解释整数的含义，选中string时，会选中其对应索引的整数 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/intpopup.png)                                                 |
-| 下拉式按钮     | EditorGUILayout.DropdownButton(new GUIContent("按钮"),FocusType.Keyboard) | 本身不能提供下拉列表，需要配合逻辑自己实现                   | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/dropdownbtn.png)                                              |
-| 连接按钮       | EditorGUILayout.LinkButton("按钮")                           | 样式为超链接的按钮，跳转连接逻辑需要自行实现                 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/linkbtn.png)                                                  |
-| 资源关联       | obj = EditorGUILayout.ObjectField("关联Obj：",obj,typeof(GameObject),true) as GameObject; | 自定义资源类型,可以点出搜索面板也可以拖动关联，通过第四个参数`allowSceneObjects`确认是否关联当前场景目标 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/objfield.png)                                                 |
-| 单行输入框     | inputInt = EditorGUILayout.IntField("Int输入：", inputInt);  | 支持int、string、float、double、long                         | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/field.png)                                                    |
-| 延迟单行输入框 | inputInt = EditorGUILayout.DelayedIntField("延迟Int：", inputInt); | 输入的数据只有在输入框失去焦点时才会记录，支持int、string、float、double | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/delayfield.png)                                               |
-| 多行文本输入框 | inputStr = EditorGUILayout.TextArea(inputStr);               | 不设置大小时，默认会根据行数自动拓展高度                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/textarea.png)                                                 |
-| 多维输入       | inputV2 = EditorGUILayout.Vector2Field("V2输入：", inputV2); | 支持vector2、3、4，rect、bound。以上都支持int和float         | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/vectorfield.png)                                              |
-| 滑动条         | sliderFloat = EditorGUILayout.Slider("slider:", sliderFloat, 0, 55); | 支持int和float                                               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/fslider.png)                                                  |
-| 双块滑动条     | EditorGUILayout.MinMaxSlider("双块", ref rightSlider, ref leftSlider, 0, 12); | 需要先声明两个float传入                                      | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/doubleslider.png)                                             |
-| 空白组件       | EditorGUILayout.Space(31);                                   | 夹在组件中间，自定义组件间间隔距离                           |                                                              |
-| 动画曲线       | curve = EditorGUILayout.CurveField("曲线：", curve);         |                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/curve.png)                                                    |
-| 复选框         | toggle =EditorGUILayout.Toggle("Toggle：",toggle);           |                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/togGroup.png)                                                 |
-| 靠左复选框     | toggle = EditorGUILayout.ToggleLeft("TogLeft", toggle);      |                                                              | 同上                                                         |
-| 复选折叠组     | toggleGroup = EditorGUILayout.BeginToggleGroup("togGroup:",toggleGroup);EditorGUILayout.EndToggleGroup(); | 被begin和end包裹的代码false时会被togglegroup置灰，变得无法交互 | 同上                                                         |
-| 下拉折叠       | isHide = EditorGUILayout.Foldout(isHide, "折叠：", true);    |                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/foldout.png)                                                  |
-| 下拉折叠豪华版 | isHideGroup = EditorGUILayout.BeginFoldoutHeaderGroup(isHideGroup, "折叠组：");EditorGUILayout.EndFoldoutHeaderGroup(); | 比普通的多了选中变色加粗，写法是两行但没有代码包裹效果       | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/foldout2.png)                                                 |
-| 排列布局       | EditorGUILayout.BeginHorizontal();EditorGUILayout.EndHorizontal(); | 被包裹的代码会水平(Horizontal)或者垂直(Vertical)排列         | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/helpbox.png)                                                  |
-| 滚动布局       | scrollView = EditorGUILayout.BeginScrollView(scrollView);EditorGUILayout.EndScrollView(); | 包裹的代码会在滚动视图内，根据窗口大小自动调节               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/scrollview.png)                                               |
-| 提示窗         | EditorGUILayout.HelpBox("tishi", MessageType.None);          | MessageType四种类型None、Info、Warning、Error                | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/helpbox.png)                                                  |
+| 方法           | 写法                                                                                                                    | 备注                                                                                                     | 效果                                                                                                |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| 文本           | EditorGUILayout.LabelField("111","22222");                                                                              |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/label.png)        |
+| 层级选择       | layer=EditorGUILayout.LayerField("这是层级",layer);                                                                     |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/layer.png)        |
+| 标签选择       | tag=EditorGUILayout.TagField("tag:",tag);                                                                               |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/tag.png)          |
+| 颜色           | color = EditorGUILayout.ColorField(new GUIContent("颜色："),color);                                                     |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/color.png)        |
+| 单选枚举       | testType = (E_TestType)EditorGUILayout.EnumPopup("枚举：",testType);                                                    |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/enumsin.png)      |
+| 多选枚举       | mulType = (E_TestType)EditorGUILayout.EnumFlagsField("枚举多选：", mulType);                                            |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/enummul.png )     |
+| 整数单选       | selectInt = EditorGUILayout.IntPopup("整数单选：", selectInt, strs,ints);                                               | 传入int数组和string数组，string[]用来展示或解释整数的含义，选中string时，会选中其对应索引的整数          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/intpopup.png)     |
+| 下拉式按钮     | EditorGUILayout.DropdownButton(new GUIContent("按钮"),FocusType.Keyboard)                                               | 本身不能提供下拉列表，需要配合逻辑自己实现                                                               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/dropdownbtn.png)  |
+| 连接按钮       | EditorGUILayout.LinkButton("按钮")                                                                                      | 样式为超链接的按钮，跳转连接逻辑需要自行实现                                                             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/linkbtn.png)      |
+| 资源关联       | obj = EditorGUILayout.ObjectField("关联Obj：",obj,typeof(GameObject),true) as GameObject;                               | 自定义资源类型,可以点出搜索面板也可以拖动关联，通过第四个参数`allowSceneObjects`确认是否关联当前场景目标 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/objfield.png)     |
+| 单行输入框     | inputInt = EditorGUILayout.IntField("Int输入：", inputInt);                                                             | 支持int、string、float、double、long                                                                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/field.png)        |
+| 延迟单行输入框 | inputInt = EditorGUILayout.DelayedIntField("延迟Int：", inputInt);                                                      | 输入的数据只有在输入框失去焦点时才会记录，支持int、string、float、double                                 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/delayfield.png)   |
+| 多行文本输入框 | inputStr = EditorGUILayout.TextArea(inputStr);                                                                          | 不设置大小时，默认会根据行数自动拓展高度                                                                 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/textarea.png)     |
+| 多维输入       | inputV2 = EditorGUILayout.Vector2Field("V2输入：", inputV2);                                                            | 支持vector2、3、4，rect、bound。以上都支持int和float                                                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/vectorfield.png)  |
+| 滑动条         | sliderFloat = EditorGUILayout.Slider("slider:", sliderFloat, 0, 55);                                                    | 支持int和float                                                                                           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/fslider.png)      |
+| 双块滑动条     | EditorGUILayout.MinMaxSlider("双块", ref rightSlider, ref leftSlider, 0, 12);                                           | 需要先声明两个float传入                                                                                  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/doubleslider.png) |
+| 空白组件       | EditorGUILayout.Space(31);                                                                                              | 夹在组件中间，自定义组件间间隔距离                                                                       |                                                                                                     |
+| 动画曲线       | curve = EditorGUILayout.CurveField("曲线：", curve);                                                                    |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/curve.png)        |
+| 复选框         | toggle =EditorGUILayout.Toggle("Toggle：",toggle);                                                                      |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/togGroup.png)     |
+| 靠左复选框     | toggle = EditorGUILayout.ToggleLeft("TogLeft", toggle);                                                                 |                                                                                                          | 同上                                                                                                |
+| 复选折叠组     | toggleGroup = EditorGUILayout.BeginToggleGroup("togGroup:",toggleGroup);EditorGUILayout.EndToggleGroup();               | 被begin和end包裹的代码false时会被togglegroup置灰，变得无法交互                                           | 同上                                                                                                |
+| 下拉折叠       | isHide = EditorGUILayout.Foldout(isHide, "折叠：", true);                                                               |                                                                                                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/foldout.png)      |
+| 下拉折叠豪华版 | isHideGroup = EditorGUILayout.BeginFoldoutHeaderGroup(isHideGroup, "折叠组：");EditorGUILayout.EndFoldoutHeaderGroup(); | 比普通的多了选中变色加粗，写法是两行但没有代码包裹效果                                                   | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/foldout2.png)     |
+| 排列布局       | EditorGUILayout.BeginHorizontal();EditorGUILayout.EndHorizontal();                                                      | 被包裹的代码会水平(Horizontal)或者垂直(Vertical)排列                                                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/helpbox.png)      |
+| 滚动布局       | scrollView = EditorGUILayout.BeginScrollView(scrollView);EditorGUILayout.EndScrollView();                               | 包裹的代码会在滚动视图内，根据窗口大小自动调节                                                           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/scrollview.png)   |
+| 提示窗         | EditorGUILayout.HelpBox("tishi", MessageType.None);                                                                     | MessageType四种类型None、Info、Warning、Error                                                            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gui/helpbox.png)      |
 
 
 
@@ -194,32 +194,32 @@ GUILayout.ExpandHeight(false);
 
 
 
-| **方法**              | **描述**                                  | **示例代码**                                                 |
-| --------------------- | ----------------------------------------- | ------------------------------------------------------------ |
-| Label()               | 显示一个标签。                            | GUILayout.Label("This is a label.");                         |
-| Box()                 | 显示一个框，用于分组或描述区域。          | GUILayout.Box("This is a box.");                             |
-| `Button()`            | 创建一个按钮。                            | if (GUILayout.Button("Click Me")) { Debug.Log("Button Clicked"); } |
-| `RepeatButton()`      | 创建一个重复按钮，按住时会重复触发事件。  | if (GUILayout.RepeatButton("Hold Me")) { Debug.Log("Holding"); } |
-| TextField()           | 创建一个单行文本输入框。                  | string text = GUILayout.TextField(text);                     |
-| TextArea()            | 创建一个多行文本输入框。                  | string text = GUILayout.TextArea(text);                      |
-| `PasswordField()`     | 创建一个密码输入框，输入内容会以 * 显示。 | string password = GUILayout.PasswordField(password, '*');    |
-| Toggle()              | 创建一个布尔开关。                        | bool isOn = GUILayout.Toggle(isOn, "Toggle");                |
-| Toolbar()             | 创建一个工具栏。                          | selected = GUILayout.Toolbar(selected, new string[] { "A", "B", "C" }); |
+| **方法**              | **描述**                                  | **示例代码**                                                                     |
+| --------------------- | ----------------------------------------- | -------------------------------------------------------------------------------- |
+| Label()               | 显示一个标签。                            | GUILayout.Label("This is a label.");                                             |
+| Box()                 | 显示一个框，用于分组或描述区域。          | GUILayout.Box("This is a box.");                                                 |
+| `Button()`            | 创建一个按钮。                            | if (GUILayout.Button("Click Me")) { Debug.Log("Button Clicked"); }               |
+| `RepeatButton()`      | 创建一个重复按钮，按住时会重复触发事件。  | if (GUILayout.RepeatButton("Hold Me")) { Debug.Log("Holding"); }                 |
+| TextField()           | 创建一个单行文本输入框。                  | string text = GUILayout.TextField(text);                                         |
+| TextArea()            | 创建一个多行文本输入框。                  | string text = GUILayout.TextArea(text);                                          |
+| `PasswordField()`     | 创建一个密码输入框，输入内容会以 * 显示。 | string password = GUILayout.PasswordField(password, '*');                        |
+| Toggle()              | 创建一个布尔开关。                        | bool isOn = GUILayout.Toggle(isOn, "Toggle");                                    |
+| Toolbar()             | 创建一个工具栏。                          | selected = GUILayout.Toolbar(selected, new string[] { "A", "B", "C" });          |
 | SelectionGrid()       | 创建一个选择网格。                        | selected = GUILayout.SelectionGrid(selected, new string[] { "A", "B", "C" }, 2); |
-| HorizontalSlider()    | 创建一个水平滑动条。                      | float value = GUILayout.HorizontalSlider(value, 0, 10);      |
-| VerticalSlider()      | 创建一个垂直滑动条。                      | float value = GUILayout.VerticalSlider(value, 0, 10);        |
-| HorizontalScrollbar() | 创建一个水平滚动条。                      | scrollPosition = GUILayout.HorizontalScrollbar(scrollPosition, 1, 0, 10); |
-| VerticalScrollbar()   | 创建一个垂直滚动条。                      | scrollPosition = GUILayout.VerticalScrollbar(scrollPosition, 1, 0, 10); |
-| Space()               | 添加一个固定大小的空白区域。              | GUILayout.Space(20);                                         |
-| FlexibleSpace()       | 添加一个可扩展的空白区域。                | GUILayout.FlexibleSpace();                                   |
-| BeginHorizontal()     | 开始一个水平布局组。                      | GUILayout.BeginHorizontal();                                 |
-| EndHorizontal()       | 结束一个水平布局组。                      | GUILayout.EndHorizontal();                                   |
-| BeginVertical()       | 开始一个垂直布局组。                      | GUILayout.BeginVertical();                                   |
-| EndVertical()         | 结束一个垂直布局组。                      | GUILayout.EndVertical();                                     |
-| BeginArea()           | 开始一个具有特定矩形区域的布局组。        | GUILayout.BeginArea(new Rect(10, 10, 200, 200));             |
-| EndArea()             | 结束一个区域布局组。                      | GUILayout.EndArea();                                         |
-| BeginScrollView()     | 开始一个滚动视图。                        | scrollPosition = GUILayout.BeginScrollView(scrollPosition);  |
-| EndScrollView()       | 结束一个滚动视图。                        | GUILayout.EndScrollView();                                   |
+| HorizontalSlider()    | 创建一个水平滑动条。                      | float value = GUILayout.HorizontalSlider(value, 0, 10);                          |
+| VerticalSlider()      | 创建一个垂直滑动条。                      | float value = GUILayout.VerticalSlider(value, 0, 10);                            |
+| HorizontalScrollbar() | 创建一个水平滚动条。                      | scrollPosition = GUILayout.HorizontalScrollbar(scrollPosition, 1, 0, 10);        |
+| VerticalScrollbar()   | 创建一个垂直滚动条。                      | scrollPosition = GUILayout.VerticalScrollbar(scrollPosition, 1, 0, 10);          |
+| Space()               | 添加一个固定大小的空白区域。              | GUILayout.Space(20);                                                             |
+| FlexibleSpace()       | 添加一个可扩展的空白区域。                | GUILayout.FlexibleSpace();                                                       |
+| BeginHorizontal()     | 开始一个水平布局组。                      | GUILayout.BeginHorizontal();                                                     |
+| EndHorizontal()       | 结束一个水平布局组。                      | GUILayout.EndHorizontal();                                                       |
+| BeginVertical()       | 开始一个垂直布局组。                      | GUILayout.BeginVertical();                                                       |
+| EndVertical()         | 结束一个垂直布局组。                      | GUILayout.EndVertical();                                                         |
+| BeginArea()           | 开始一个具有特定矩形区域的布局组。        | GUILayout.BeginArea(new Rect(10, 10, 200, 200));                                 |
+| EndArea()             | 结束一个区域布局组。                      | GUILayout.EndArea();                                                             |
+| BeginScrollView()     | 开始一个滚动视图。                        | scrollPosition = GUILayout.BeginScrollView(scrollPosition);                      |
+| EndScrollView()       | 结束一个滚动视图。                        | GUILayout.EndScrollView();                                                       |
 
 
 ### **EditorGUIUtility**
@@ -230,18 +230,18 @@ GUILayout.ExpandHeight(false);
 
 仅记录常用
 
-| **方法/属性**      | **描述**                                 | **示例**                                                     |
-| ------------------ | ---------------------------------------- | ------------------------------------------------------------ |
+| **方法/属性**      | **描述**                                 | **示例**                                                                        |
+| ------------------ | ---------------------------------------- | ------------------------------------------------------------------------------- |
 | LoadRequired()     | 加载资源需要填写后缀，不存在的资源`报错` | Texture2D tex = EditorGUIUtility.LoadRequired("Icons/MyIcon.png") as Texture2D; |
-| Load()             | 加载资源需要填写后缀，不存在的资源`返空` | Texture2D tex = EditorGUIUtility.Load("Assets/MyIcon.png") as Texture2D; |
-| ShowObjectPicker() | 弹出目标资源搜索框                       | EditorGUIUtility.ShowObjectPicker<Texture>(null,true,"pdf",0); |
-| PingObject()       | 在编辑器中高亮显示并选中对象。           | EditorGUIUtility.PingObject(myObject);                       |
-| AddCursorRect()    | 将鼠标光标矩形区域添加到事件队列中。     | EditorGUIUtility.AddCursorRect(rect, MouseCursor.ResizeHorizontal); |
-| FindTexture()      | 根据名称查找内置或自定义资源中的纹理。   | Texture2D texture = EditorGUIUtility.FindTexture("d_console.warnicon"); |
-| DrawColorSwatch()  | 将颜色和透明的信息展示成一张图           | color=EditorGUILayout.ColorField(new GUIContent("颜色"),color,true,true,true); |
-| DrawCurveSwatch()  | 将曲线展示成一张图                       | curve = EditorGUILayout.CurveField("曲线",curve);            |
-| GUIToScreenPoint() | 将一个点从GUI转换到屏幕空间              | Vector2 screenPos = EditorGUIUtility.GUIToScreenPoint(v);    |
-| ScreenToGUIPoint() | 将屏幕空间的点转换到GUI空间              | Vector2 convertedGUIPos = GUIUtility.ScreenToGUIPoint(screenPos); |
+| Load()             | 加载资源需要填写后缀，不存在的资源`返空` | Texture2D tex = EditorGUIUtility.Load("Assets/MyIcon.png") as Texture2D;        |
+| ShowObjectPicker() | 弹出目标资源搜索框                       | EditorGUIUtility.ShowObjectPicker<Texture>(null,true,"pdf",0);                  |
+| PingObject()       | 在编辑器中高亮显示并选中对象。           | EditorGUIUtility.PingObject(myObject);                                          |
+| AddCursorRect()    | 将鼠标光标矩形区域添加到事件队列中。     | EditorGUIUtility.AddCursorRect(rect, MouseCursor.ResizeHorizontal);             |
+| FindTexture()      | 根据名称查找内置或自定义资源中的纹理。   | Texture2D texture = EditorGUIUtility.FindTexture("d_console.warnicon");         |
+| DrawColorSwatch()  | 将颜色和透明的信息展示成一张图           | color=EditorGUILayout.ColorField(new GUIContent("颜色"),color,true,true,true);  |
+| DrawCurveSwatch()  | 将曲线展示成一张图                       | curve = EditorGUILayout.CurveField("曲线",curve);                               |
+| GUIToScreenPoint() | 将一个点从GUI转换到屏幕空间              | Vector2 screenPos = EditorGUIUtility.GUIToScreenPoint(v);                       |
+| ScreenToGUIPoint() | 将屏幕空间的点转换到GUI空间              | Vector2 convertedGUIPos = GUIUtility.ScreenToGUIPoint(screenPos);               |
 
 
   屏幕空间y坐标从窗口顶部边缘的零到窗口底部边缘的最大值不等，在坐标转换时会有一定的偏移。
@@ -249,31 +249,31 @@ GUILayout.ExpandHeight(false);
 ### **Selection**
 
 
-| **方法/属性**      | **描述**                             | **示例代码**                                                 |
-| ------------------ | ------------------------------------ | ------------------------------------------------------------ |
-| `activeObject`     | 获取或设置当前选中的第一个对象。     | Selection.activeObject = myGameObject;                       |
-| `activeGameObject` | 获取或设置当前选中的第一个游戏对象。 | Selection.activeGameObject = myGameObject;                   |
-| activeTransform    | 获取或设置当前选中的第一个变换对象。 | Selection.activeTransform = myTransform;                     |
-| objects            | 获取或设置当前选中的对象数组。       | Selection.objects = new Object[] { obj1, obj2 };             |
-| count              | 获取当前选中的object总数             | Selection.count                                              |
-| `gameObjects`      | 获取或设置当前选中的游戏对象数组。   | Selection.gameObjects = new GameObject[] { go1, go2 };       |
-| transforms         | 获取或设置当前选中的变换对象数组。   | Selection.transforms = new Transform[] { trans1, trans2 };   |
-| assetGUIDs         | 获取当前选中的资源的 GUID 数组。     | string[] guids = Selection.assetGUIDs;                       |
-| `Contains()`       | 检查当前选中对象是否包含指定对象。   | bool isSelected = Selection.Contains(myObject);              |
+| **方法/属性**      | **描述**                             | **示例代码**                                                                       |
+| ------------------ | ------------------------------------ | ---------------------------------------------------------------------------------- |
+| `activeObject`     | 获取或设置当前选中的第一个对象。     | Selection.activeObject = myGameObject;                                             |
+| `activeGameObject` | 获取或设置当前选中的第一个游戏对象。 | Selection.activeGameObject = myGameObject;                                         |
+| activeTransform    | 获取或设置当前选中的第一个变换对象。 | Selection.activeTransform = myTransform;                                           |
+| objects            | 获取或设置当前选中的对象数组。       | Selection.objects = new Object[] { obj1, obj2 };                                   |
+| count              | 获取当前选中的object总数             | Selection.count                                                                    |
+| `gameObjects`      | 获取或设置当前选中的游戏对象数组。   | Selection.gameObjects = new GameObject[] { go1, go2 };                             |
+| transforms         | 获取或设置当前选中的变换对象数组。   | Selection.transforms = new Transform[] { trans1, trans2 };                         |
+| assetGUIDs         | 获取当前选中的资源的 GUID 数组。     | string[] guids = Selection.assetGUIDs;                                             |
+| `Contains()`       | 检查当前选中对象是否包含指定对象。   | bool isSelected = Selection.Contains(myObject);                                    |
 | `GetFiltered()`    | 获取过滤后的选中对象数组。           | Transform[] transforms = Selection.GetFiltered<Transform>(SelectionMode.Editable); |
-| selectionChanged   | 当选中的对象改变时触发的事件。       | Selection.selectionChanged += MySelectionChangedMethod;      |
+| selectionChanged   | 当选中的对象改变时触发的事件。       | Selection.selectionChanged += MySelectionChangedMethod;                            |
 
 其中GetFiltered方法需要传入的筛选枚举     
 
-| **枚举**                                                     | **描述**                    |
-| ------------------------------------------------------------ | --------------------------- |
-| Unfiltered                                                   | 不过滤                      |
-| TopLevel                                                     | 仅返回父对象                |
-| Deep                                                         | 返回选择内容及其子对象      |
-| ExcludePrefab                                                | 排除预制体                  |
-| Editable                                                     | 只返回可编辑的内容          |
-| Assets                                                       | 仅返回Asset目录的资产对象   |
-| DeepAssets                                                   | 同时获取子文件夹的内容      |
+| **枚举**      | **描述**                          |
+| ------------- | --------------------------------- |
+| Unfiltered    | 不过滤                            |
+| TopLevel      | 仅返回父对象(Transform)           |
+| Deep          | 返回选择内容及其子对象(Transform) |
+| ExcludePrefab | 排除预制体                        |
+| Editable      | 只返回可编辑的内容                |
+| Assets        | 仅返回Asset目录的资产对象         |
+| DeepAssets    | 同时获取子文件夹的内容            |
 
 > 默认的变换选择模式为：SelectionMode.TopLevel | SelectionMode.ExcludePrefab | SelectionMode.Editable。
 
@@ -281,51 +281,225 @@ GUILayout.ExpandHeight(false);
 ### **Event公共类**
 [Event官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Event.html)       
 
-## 常用属性
-
-| **属性**           | **描述**                                                                         |
-|-------------------|----------------------------------------------------------------------------------|
-| type            | 事件的类型（例如，EventType.MouseDown、EventType.KeyDown）。                  |
-| mousePosition   | 鼠标指针的位置。                                                                 |
-| delta           | 鼠标滚轮滚动的增量。                                                             |
-| button          | 鼠标按键（0：左键，1：右键，2：中键）。                                          |
-| modifiers       | 当前按下的修饰键（如 EventModifiers.Shift、EventModifiers.Control）。         |
-| keyCode         | 按下的键的键码。                                                                 |
-| character       | 输入的字符。                                                                     |
-
-## 常用方法
-
-| **方法**                     | **描述**                                           |
-|-----------------------------|--------------------------------------------------|
-| Use()                     | 标记事件已被使用。                                 |
-| GetTypeForControl(int controlID) | 获取指定控件的事件类型。                     |
-
-## 事件类型
-
-EventType 枚举包含多种事件类型，包括但不限于：
-
-| **事件类型**    | **描述**                                   |
-|-----------------|--------------------------------------------|
-| MouseDown     | 鼠标按键按下。                             |
-| MouseUp       | 鼠标按键抬起。                             |
-| MouseMove     | 鼠标移动。                                 |
-| KeyDown       | 键盘按键按下。                             |
-| KeyUp         | 键盘按键抬起。                             |
-| ScrollWheel   | 鼠标滚轮滚动。                             |
-| Repaint       | 窗口重绘事件。                             |
+**Event**
+| **属性/方法**     | **描述**                                                |
+| ----------------- | ------------------------------------------------------- |
+| `current`         | 当前正在处理的事件。以下操作都是对Event.current进行访问 |
+| `alt`             | 是否按下 Alt/Option 键？（只读）                        |
+| `button`          | 按下的鼠标按钮。                                        |
+| `capsLock`        | 是否打开大写锁定？（只读）                              |
+| `character`       | 输入的字符。                                            |
+| `clickCount`      | 连续点击的次数。                                        |
+| command           | 是否按下 Command/Windows 键？（只读）                   |
+| `commandName`     | 执行或验证命令事件的名称。                              |
+| `control`         | 是否按下 Control 键？（只读）                           |
+| `shift`           | 是否按下 Shift 键？（只读）                             |
+| delta             | 鼠标相对于上次事件的移动量。                            |
+| displayIndex      | 事件所属显示器的索引。                                  |
+| functionKey       | 当前按键是否是功能键？（只读）                          |
+| isKey             | 该事件是否是键盘事件？（只读）                          |
+| isMouse           | 该事件是否是鼠标事件？（只读）                          |
+| `keyCode`         | 键盘事件的原始键码。                                    |
+| modifiers         | 按下的修饰键。                                          |
+| `mousePosition`   | 鼠标位置。                                              |
+| numeric           | 当前按键是否在数字键盘上？（只读）                      |
+| pointerType       | 创建该事件的指针类型（例如：鼠标、触摸屏、笔）。        |
+| pressure          | 施加的笔压力。                                          |
+| `type`            | 事件的类型。                                            |
+| GetTypeForControl | 获取给定控件 ID 的过滤事件类型。                        |
+| `Use`             | 使用此事件。                                            |
+| GetEventCount     | 返回事件队列中存储的事件数量。                          |
+| KeyboardEvent     | 创建一个键盘事件。                                      |
+| PopEvent          | 从事件系统中获取下一个排队的事件。                      |
 
 
+>commandName有"Copy", "Cut", "Paste", "Delete", "FrameSelected", "Duplicate", "SelectAll" 等等
+
+
+
+**EventType**
+
+| **事件类型**     | **描述**                                       |
+| ---------------- | ---------------------------------------------- |
+| MouseDown        | 鼠标按下。                                     |
+| MouseUp          | 鼠标释放。                                     |
+| MouseMove        | 鼠标移动（仅限编辑器视图）。                   |
+| MouseDrag        | 鼠标拖拽。                                     |
+| KeyDown          | 键盘按键按下。                                 |
+| KeyUp            | 键盘按键释放。                                 |
+| ScrollWheel      | 滚轮滚动。                                     |
+| Repaint          | 重绘事件。每帧发送一次。                       |
+| Layout           | 布局事件。                                     |
+| DragUpdated      | 编辑器中：拖放操作更新。                       |
+| DragPerform      | 编辑器中：拖放操作执行。                       |
+| DragExited       | 编辑器中：拖放操作退出。                       |
+| Ignore           | 事件应被忽略。                                 |
+| Used             | 事件已被处理。                                 |
+| ValidateCommand  | 验证特殊命令（如复制粘贴）。                   |
+| ExecuteCommand   | 执行特殊命令（如复制粘贴）。                   |
+| ContextClick     | 用户右键单击（或在 Mac 上按 Control 键单击）。 |
+| MouseEnterWindow | 鼠标进入窗口（仅限编辑器视图）。               |
+| MouseLeaveWindow | 鼠标离开窗口（仅限编辑器视图）。               |
+| TouchDown        | 直接操作设备（手指、笔）触摸屏幕。             |
+| TouchUp          | 直接操作设备（手指、笔）离开屏幕。             |
+| TouchMove        | 直接操作设备（手指、笔）在屏幕上移动（拖拽）。 |
+| TouchEnter       | 直接操作设备（手指、笔）移动进入窗口（拖拽）。 |
+| TouchLeave       | 直接操作设备（手指、笔）移动离开窗口（拖拽）。 |
+| TouchStationary  | 直接操作设备（手指、笔）静止事件（长按）。     |
 
 
 ### **Inspector窗口拓展**
 
-- **基础知识**
+[SerializedObject官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/SerializedObject.html)       
+[SerializedProperty官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/SerializedProperty.html)       
 
-- **数组、List属性**
 
-- **自定义属性**
+#### 拓展流程
 
-- **字典属性**
+1. 创建目标脚本的拓展脚本 Lesson22_InspectorEditor : Editor    
+2. 拓展脚本声明特性 [CustomEditor(typeof(Lesson22_Inspector))]
+3. 在拓展脚本声明使用的属性 private SerializedProperty atk;
+4. 拓展脚本的`OnEnable`做属性关联 atk = serializedObject.FindProperty("atk");
+5. 拓展脚本的`OnInspectorGUI` 声明新的展示逻辑,使用代码块包裹     
+    serializedObject.Update();   
+    serializedObject.ApplyModifiedProperties();
+
+
+
+
+#### SerializedObject
+序列化对象    
+用于表示和管理一个或多个对象的序列化数据。它允许在编辑器中对对象属性进行统一管理和修改。常用的功能包括：  
+1. 检查和编辑对象的属性。
+2. 支持多对象编辑。
+3. 应用和撤销修改。
+
+
+###### 变量
+| **变量**                    | **描述**                                                                           |
+| --------------------------- | ---------------------------------------------------------------------------------- |
+| context                     | 用于存储和解析 ExposedReference 类型的上下文。这由 SerializedObject 构造函数设置。 |
+| forceChildVisibility        | 控制子隐藏字段的可见性。                                                           |
+| hasModifiedProperties       | 如果 SerializedObject 的某个属性已经修改但尚未应用，则为 true。                    |
+| isEditingMultipleObjects    | 序列化对象是否由于多对象编辑而代表多个对象？（只读）                               |
+| maxArraySizeForMultiEditing | 定义大小上限，若在选择多个对象时超过该大小，则无法编辑数组。                       |
+| targetObject                | 所检查的单个对象（只读）。                                                         |
+| targetObjects               | 所检查的多个对象（只读）。                                                         |
+
+###### 公共函数
+| **函数**                              | **描述**                                                                                   |
+| ------------------------------------- | ------------------------------------------------------------------------------------------ |
+| ApplyModifiedProperties               | 应用属性修改。                                                                             |
+| ApplyModifiedPropertiesWithoutUndo    | 在不注册撤销操作的情况下应用属性修改。                                                     |
+| CopyFromSerializedProperty            | 将 SerializedProperty 中的值复制到序列化对象上的相应序列化属性。                           |
+| CopyFromSerializedPropertyIfDifferent | 将 SerializedProperty 中的更改值复制到序列化对象上的相应序列化属性。                       |
+| FindProperty                          | 按名称查找序列化属性。                                                                     |
+| GetIterator                           | 获取第一个序列化属性。                                                                     |
+| SetIsDifferentCacheDirty              | 在下一次进行 Update() 调用时更新 hasMultipleDifferentValues 缓存。                         |
+| Update                                | 更新序列化对象的表示形式。                                                                 |
+| UpdateIfRequiredOrScript              | 更新序列化对象的表示形式（仅当自上次调用 Update 后对象发生修改或者它是脚本时才进行更新）。 |
+
+
+#### SerializedProperty
+序列化属性
+##### 变量
+
+| **变量**                      | **描述**                                                                                             |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------- |
+| animationCurveValue           | 动画曲线属性的值。                                                                                   |
+| quaternionValue               | 四元数属性的值。                                                                                     |
+| rectIntValue                  | 带有整数值属性的矩形的值。                                                                           |
+| rectValue                     | 矩形属性的值。                                                                                       |
+| `boolValue`                   | 布尔值属性的值。                                                                                     |
+| boundsIntValue                | 带有整数值属性的边界的值。                                                                           |
+| boundsValue                   | 边界属性的值。                                                                                       |
+| `colorValue`                  | 颜色属性的值。                                                                                       |
+| `doubleValue`                 | 双精度浮点属性的值。                                                                                 |
+| `floatValue`                  | 浮点属性的值。                                                                                       |
+| `intValue`                    | 整数属性的值。                                                                                       |
+| `longValue`                   | 长整型属性的值。                                                                                     |
+| `stringValue`                 | 字符串属性的值。                                                                                     |
+| vector2IntValue               | 2D 整数向量属性的值。                                                                                |
+| vector2Value                  | 2D 向量属性的值。                                                                                    |
+| vector3IntValue               | 3D 整数向量属性的值。                                                                                |
+| vector3Value                  | 3D 向量属性的值。                                                                                    |
+| vector4Value                  | 4D 向量属性的值。                                                                                    |
+| enumDisplayNames              | 枚举属性的枚举的友好显示名称。                                                                       |
+| enumNames                     | 枚举属性的枚举的名称。                                                                               |
+| enumValueFlag                 | 枚举属性的整数表示值，包含混合值。                                                                   |
+| enumValueIndex                | 枚举属性的枚举索引。                                                                                 |
+| hash128Value                  | Hash128 属性的值。                                                                                   |
+| objectReferenceValue          | 对象引用属性的值。                                                                                   |
+| arrayElementType              | 数组属性中元素的类型名称。（只读）                                                                   |
+| arraySize                     | 数组中的元素数量。                                                                                   |
+| depth                         | 属性的嵌套深度。（只读）                                                                             |
+| displayName                   | 属性的友好显示名称。（只读）                                                                         |
+| editable                      | 此属性是否可编辑？（只读）                                                                           |
+| exposedReferenceValue         | 对场景中另一个对象的引用。系统将在包含 SerializedProperty 的 SerializedObject 的上下文中解析此引用。 |
+| fixedBufferSize               | 固定缓冲区中的元素数量。（只读）                                                                     |
+| hasChildren                   | 此属性是否有子属性？（只读）                                                                         |
+| hasMultipleDifferentValues    | 此属性是否会因为多对象编辑而代表多个不同的值？（只读）                                               |
+| hasVisibleChildren            | 此属性是否有可见的子属性？（只读）                                                                   |
+| isArray                       | 此属性是否为数组？（只读）                                                                           |
+| isDefaultOverride             | 允许检查此属性是否为默认重载。                                                                       |
+| isExpanded                    | 此属性是否在检视面板中展开？                                                                         |
+| isFixedBuffer                 | 此属性是否为固定缓冲区？（只读）                                                                     |
+| isInstantiatedPrefab          | 属性是否为预制件实例的一部分？（只读）                                                               |
+| managedReferenceFieldTypename | 与托管引用字段完整类型字符串的值对应的字符串。                                                       |
+| managedReferenceFullTypename  | 与托管引用对象（动态）完整类型字符串的值对应的字符串。                                               |
+| managedReferenceId            | 与托管引用关联的 ID。                                                                                |
+| managedReferenceValue         | 分配给带 SerializeReference 属性字段的对象。                                                         |
+| minArraySize                  | 所有目标对象中数组的最小元素数。（只读）                                                             |
+| name                          | 属性的名称。（只读）                                                                                 |
+| prefabOverride                | 允许检查属性的值是否被重载（即与其所属的预制件不同）。                                               |
+| propertyPath                  | 属性的完整路径。（只读）                                                                             |
+| propertyType                  | 此属性的类型（只读）。                                                                               |
+| serializedObject              | 此属性所属的 SerializedObject（只读）。                                                              |
+| tooltip                       | 属性的工具提示。（只读）                                                                             |
+| type                          | 属性的类型名称。（只读）                                                                             |
+
+##### 公共函数
+
+| **函数**                     | **描述**                                                                                                           |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ClearArray                   | 从数组中删除所有元素。                                                                                             |
+| Copy                         | 返回 SerializedProperty 迭代器的副本（保留当前状态）。如果您想在继续迭代的同时保存当前属性的引用，则此方法很有用。 |
+| CountInProperty              | 计算此属性的可见子属性的数量，包括属性本身。                                                                       |
+| CountRemaining               | 计算剩余可见属性的数量。                                                                                           |
+| `DeleteArrayElementAtIndex`    | 删除数组中指定索引处的元素。                                                                                       |
+| DeleteCommand                | 删除已序列化的属性。                                                                                               |
+| DuplicateCommand             | 复制已序列化的属性。                                                                                               |
+| FindPropertyRelative         | 从当前属性的相关路径检索 SerializedProperty。                                                                      |
+| `GetArrayElementAtIndex`       | 返回数组中指定索引处的元素。                                                                                       |
+| GetEndProperty               | 检索定义此属性起始范围的 SerializedProperty。                                                                      |
+| GetEnumerator                | 检索用于枚举当前属性的可见子属性的迭代器。如果该属性是数组，则它将枚举数组元素。                                   |
+| `GetFixedBufferElementAtIndex` | 返回固定缓冲区中指定索引处的元素。                                                                                 |
+| `InsertArrayElementAtIndex`    | 在数组中的指定索引处插入空元素。                                                                                   |
+| MoveArrayElement             | 将数组元素从 srcIndex 移到 dstIndex。                                                                              |
+| Next                         | 移至下一个属性。                                                                                                   |
+| NextVisible                  | 移至下一个可见属性。                                                                                               |
+| Reset                        | 移至对象的第一个属性。                                                                                             |
+
+##### 静态函数
+
+| **函数**      | **描述**                                                                     |
+| ------------- | ---------------------------------------------------------------------------- |
+| DataEquals    | 比较两个 SerializedProperties 的数据。此方法会忽略路径和 SerializedObjects。 |
+| EqualContents | 查看包含的序列化属性是否相等。                                               |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### **Scene窗口拓展**
 

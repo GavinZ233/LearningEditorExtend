@@ -12,6 +12,17 @@ public class Lesson18_Selection : EditorWindow
     }
 
 
+    private void OnEnable()
+    {
+        Selection.selectionChanged+= SelectionChange;
+
+    }
+
+    private void OnDestroy()
+    {
+        Selection.selectionChanged-= SelectionChange;
+
+    }
     string str = "";
     string str2 = "";
     Texture pdf;
@@ -61,7 +72,27 @@ public class Lesson18_Selection : EditorWindow
             Selection.activeObject = pdf;
         }
 
+
+        if (GUILayout.Button("筛选选择内容"))
+        {
+            Transform[] objs = Selection.GetFiltered<Transform>(SelectionMode.TopLevel);
+            for (int i = 0; i < objs.Length; i++)
+            {
+                Debug.Log(objs[i].name);
+            }
+        }
     }
+
+    private void SelectionChange()
+    {
+        if (Selection.activeObject!=null)
+            Debug.Log("改变目标，获取到：" + Selection.activeObject.name);
+        else
+            Debug.Log("改变目标，目前空目标");
+    }
+
+
+
 
 }
 
