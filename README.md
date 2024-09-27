@@ -488,15 +488,85 @@ GUILayout.ExpandHeight(false);
 | EqualContents | 查看包含的序列化属性是否相等。                                               |
 
 
+##### 实现字典序列化
+
+此处仅考虑一种字典情况
+
+Mono脚本需要继承`ISerializationCallbackReceiver`接口
+
+    public Dictionary<int, string> serDic = new Dictionary<int, string>() { { 1,"张三"},{ 2,"李四"} };//被序列化字典
+    [SerializeField] private List<int> keyList = new List<int>();//序列化数据的临时容器
+    [SerializeField] private List<string> valueList = new List<string>();
+
+    public void OnAfterDeserialize()
+    {//反序列化前将临时数据装入字典
+        serDic.Clear();
+        for (int i = 0; i < keyList.Count; i++)
+        {
+            if (!serDic.ContainsKey(keyList[i]))
+                serDic.Add(keyList[i],valueList[i]);
+            else
+                Debug.LogWarning("已有此键："+keyList[i]);
+        }
+    }
+
+    public void OnBeforeSerialize()
+    {//系列化前将字典数据放入临时容器
+        keyList.Clear();
+        valueList.Clear();
+        foreach (var item in serDic)
+        {
+            keyList.Add(item.Key);
+            valueList.Add(item.Value);
+        }
+    }
+
+Editor脚本
+
+    private int dicCount;
+    private SerializedProperty dicKeys;
+    private SerializedProperty dicValues;
+
+    private void OnEnable()
+    {
+        //初始化，找到双方属性做关联
+        dicKeys = serializedObject.FindProperty("keyList");
+        dicValues = serializedObject.FindProperty("valueList");
+        dicCount = dicKeys.arraySize;
+    }
+
+    public override void OnInspectorGUI()
+    {
+        dicCount = EditorGUILayout.IntField("字典数量", dicCount);
+
+        for (int i = dicKeys.arraySize-1; i >=dicCount; i--)
+        {//删除多余键值对
+            dicKeys.DeleteArrayElementAtIndex(i);
+            dicValues.DeleteArrayElementAtIndex(i);
+        }
+
+        for (int i = 0; i < dicCount; i++)
+        {//扩容
+            if (dicKeys.arraySize<=i)
+            {
+                dicKeys.InsertArrayElementAtIndex(i);
+                dicValues.InsertArrayElementAtIndex(i);
+            }
+
+            SerializedProperty indexKey = dicKeys.GetArrayElementAtIndex(i);
+            SerializedProperty indexValue = dicValues.GetArrayElementAtIndex(i);
+            EditorGUILayout.BeginHorizontal();
+            indexKey.intValue = EditorGUILayout.IntField("学号：", indexKey.intValue);
+            indexValue.stringValue = EditorGUILayout.TextField("姓名：", indexValue.stringValue);
+            EditorGUILayout.EndHorizontal();
 
 
+        }
+        //应用数据
+        serializedObject.ApplyModifiedProperties();
 
-
-
-
-
-
-
+    }
+此处扩容出来的键值对是继承了上一个键值对的数据，会触发字典重复的bug，实际使用时可以考虑对扩容键值对的数据初始化     
 
 
 
@@ -504,6 +574,9 @@ GUILayout.ExpandHeight(false);
 ### **Scene窗口拓展**
 
 - **Handles公共类**
+
+
+
 
   - **Handles类是什么及响应函数**
 

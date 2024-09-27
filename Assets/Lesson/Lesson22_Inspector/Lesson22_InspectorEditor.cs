@@ -21,6 +21,10 @@ public class Lesson22_InspectorEditor : Editor
     private SerializedProperty infoName;
     private SerializedProperty infoHP;
     private SerializedProperty infoLevel;
+
+    private int dicCount;
+    private SerializedProperty dicKeys;
+    private SerializedProperty dicValues;
     private void OnEnable()
     {
         //初始化，找到双方属性做关联
@@ -37,6 +41,9 @@ public class Lesson22_InspectorEditor : Editor
         infoHP = playerInfo.FindPropertyRelative("HP");
         infoLevel = playerInfo.FindPropertyRelative("Level");
 
+        dicKeys = serializedObject.FindProperty("keyList");
+        dicValues = serializedObject.FindProperty("valueList");
+        dicCount = dicKeys.arraySize;
     }
     //  该函数控制了Inspector窗口中显示的内容
     //  只需要在其中重写内容便可以自定义窗口
@@ -80,19 +87,46 @@ public class Lesson22_InspectorEditor : Editor
         EditorGUILayout.PropertyField(strs, new GUIContent("字符串组"));
         //EditorGUILayout.PropertyField(values, new GUIContent("values"));
 
+        EditorGUILayout.PropertyField(playerInfo, new GUIContent("API显示"));
 
         infoisClose = EditorGUILayout.BeginFoldoutHeaderGroup(infoisClose, "玩家属性");
         if (infoisClose)
             DrawCustomData();
         EditorGUILayout.EndFoldoutHeaderGroup();
 
-        serializedObject.ApplyModifiedProperties();
 
+
+        dicCount = EditorGUILayout.IntField("字典数量", dicCount);
+
+        for (int i = dicKeys.arraySize-1; i >=dicCount; i--)
+        {
+            dicKeys.DeleteArrayElementAtIndex(i);
+            dicValues.DeleteArrayElementAtIndex(i);
+        }
+
+        for (int i = 0; i < dicCount; i++)
+        {
+            if (dicKeys.arraySize<=i)
+            {
+                dicKeys.InsertArrayElementAtIndex(i);
+                dicValues.InsertArrayElementAtIndex(i);
+            }
+
+            SerializedProperty indexKey = dicKeys.GetArrayElementAtIndex(i);
+            SerializedProperty indexValue = dicValues.GetArrayElementAtIndex(i);
+            EditorGUILayout.BeginHorizontal();
+            indexKey.intValue = EditorGUILayout.IntField("学号：", indexKey.intValue);
+            indexValue.stringValue = EditorGUILayout.TextField("姓名：", indexValue.stringValue);
+            EditorGUILayout.EndHorizontal();
+
+
+        }
+        //应用序列化
+        serializedObject.ApplyModifiedProperties();
 
     }
     private void DrawCustomData()
     {
-        EditorGUILayout.PropertyField(playerInfo,new GUIContent("API显示"));
         EditorGUILayout.LabelField("自定义显示");
 
         infoID .stringValue= EditorGUILayout.TextField("ID",infoID.stringValue);
