@@ -55,8 +55,14 @@ namespace Gavin
 
 			//辅助Transform
 			obj.transform.position = Handles.DoPositionHandle(obj.transform.position,obj.transform.rotation);
-			obj.transform.rotation = Handles.DoRotationHandle( obj.transform.rotation, obj.transform.position);
-			obj.transform.localScale = Handles.DoScaleHandle(obj.transform.localScale, obj.transform.position,obj.transform.rotation,HandleUtility.GetHandleSize(Vector3.zero));
+			obj.transform.rotation = Handles.RotationHandle( obj.transform.rotation, obj.transform.position);
+			//最后GetHandleSize是根据目标坐标与摄像机的距离设置缩放图标的比例，
+			//obj.transform.localScale = Handles.DoScaleHandle(obj.transform.localScale, obj.transform.position,obj.transform.rotation,HandleUtility.GetHandleSize(obj.transform.position));
+
+			obj.transform.localScale = Handles.ScaleHandle(obj.transform.localScale, obj.transform.position, obj.transform.rotation, HandleUtility.GetHandleSize(Vector3.zero));
+
+			//DoScaleHandle与ScaleHandle同理，不带Do的方法是新方法
+
 
 		}
 
