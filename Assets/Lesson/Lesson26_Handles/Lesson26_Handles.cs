@@ -63,7 +63,10 @@ namespace Gavin
 
 			//DoScaleHandle与ScaleHandle同理，不带Do的方法是新方法
 
+			obj.transform.position = Handles.FreeMoveHandle(obj.transform.position,obj.transform.rotation,HandleUtility.GetHandleSize(obj.transform.position),Vector3.one*5,Handles.RectangleHandleCap);
 
+			obj.transform.rotation = Handles.FreeRotateHandle(obj.transform.rotation,Vector3.zero,HandleUtility.GetHandleSize(obj.transform.position));
+			
 		}
 
 

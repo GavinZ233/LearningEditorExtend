@@ -575,10 +575,33 @@ Editor脚本
 
 - **Handles公共类**
 
+| 方法/属性               | 说明                                               | 示例                                                       |
+|-------------------------|----------------------------------------------------|------------------------------------------------------------|
+| Handles.PositionHandle | 绘制一个可拖动的三维位置句柄。                    | Handles.PositionHandle(position, rotation)               |
+| Handles.ScaleHandle    | 绘制一个可拖动的三维缩放句柄。                    | Handles.ScaleHandle(scale, position, rotation, size)      |
+| Handles.RotationHandle | 绘制一个可拖动的三维旋转句柄。                    | Handles.RotationHandle(rotation, position)                |
+| Handles.DrawLine       | 在场景视图中绘制一条线。                          | Handles.DrawLine(startPosition, endPosition)              |
+| Handles.Label          | 在场景视图中指定位置绘制文本标签。                | Handles.Label(position, "Label Text")                     |
+| Handles.ArrowHandleCap | 绘制一个箭头形状的句柄，用于自定义句柄绘制。      | Handles.ArrowHandleCap(controlID, position, rotation)     |
+| Handles.CubeHandleCap  | 绘制一个立方体形状的句柄，用于自定义句柄绘制。    | Handles.CubeHandleCap(controlID, position, rotation)      |
+| Handles.SphereHandleCap| 绘制一个球形句柄，用于自定义句柄绘制。            | Handles.SphereHandleCap(controlID, position, rotation)    |
+| Handles.Button         | 在场景视图中绘制一个可点击的按钮句柄。            | Handles.Button(position, rotation, size, pickSize, capFunc) |
+| Handles.FreeMoveHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle(position, rotation, size)          |
+| Handles.Disc           | 绘制一个圆盘形旋转句柄，可以绕指定轴旋转对象。    | Handles.Disc(rotation, position, axis, size)              |
+| Handles.DrawSolidDisc  | 绘制一个实心圆盘。                                | Handles.DrawSolidDisc(position, normal, radius)           |
+| Handles.DrawWireDisc   | 绘制一个线框圆盘。                                | Handles.DrawWireDisc(position, normal, radius)            |
+| Handles.DrawAAPolyLine | 绘制一条抗锯齿线。                                | Handles.DrawAAPolyLine(points)                            |
+| Handles.RectangleHandleCap | 绘制一个矩形句柄。                           | Handles.RectangleHandleCap(controlID, position, rotation) |
+| Handles.CircleHandleCap| 绘制一个圆形句柄。                                | Handles.CircleHandleCap(controlID, position, rotation)     |
+| Handles.color          | 设置句柄的颜色。                                   | Handles.color = Color.red                                |
+| Handles.matrix         | 设置句柄的变换矩阵，用于控制句柄的世界/局部空间。 | Handles.matrix = Matrix4x4.TRS(position, rotation, scale) |
 
 
 
-  - **Handles类是什么及响应函数**
+
+  - **Handles类是什么及响应函数**   
+  
+
 
   - **文本、线段、虚线**
 
@@ -592,7 +615,45 @@ Editor脚本
 
 - **HandleUtility公共类**
 
+
+| 方法/属性                              | 说明                                                                | 示例                                                            |
+|----------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------|
+| HandleUtility.GUIPointToWorldRay     | 将 GUI 点转换为射线（屏幕坐标转换为世界坐标射线）。                  | Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition); |
+| HandleUtility.WorldToGUIPoint        | 将世界坐标转换为 GUI 坐标。                                          | Vector2 guiPoint = HandleUtility.WorldToGUIPoint(worldPosition); |
+| HandleUtility.WorldToGUIPointWithDepth | 将世界坐标转换为 GUI 坐标，并返回深度信息。                          | Vector3 guiPointWithDepth = HandleUtility.WorldToGUIPointWithDepth(worldPosition); |
+| HandleUtility.GetHandleSize          | 获取与场景视图中给定位置相关的缩放因子，用于动态调整句柄大小。        | float handleSize = HandleUtility.GetHandleSize(position);      |
+| HandleUtility.PickGameObject         | 在鼠标点击的地方拾取游戏对象。                                       | GameObject pickedObj = HandleUtility.PickGameObject(mousePosition, ignoreSelection); |
+| HandleUtility.PickRectObjects        | 在给定的矩形区域内拾取所有对象。                                     | GameObject[] pickedObjs = HandleUtility.PickRectObjects(rect, allowSceneObjects); |
+| HandleUtility.AddDefaultControl      | 将指定的控件 ID 设置为默认控件，避免 UI 控件接收输入。               | HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive)); |
+| HandleUtility.NearestControl         | 获取当前最近的控件 ID，用于处理交互逻辑。                             | int nearestID = HandleUtility.nearestControl;                 |
+| HandleUtility.DistanceToLine         | 计算鼠标位置与线段之间的距离，用于检测交互。                           | float distance = HandleUtility.DistanceToLine(p1, p2);        |
+| HandleUtility.DistanceToCircle       | 计算鼠标位置与圆之间的距离。                                          | float distance = HandleUtility.DistanceToCircle(center, radius); |
+| HandleUtility.IgnoreRaySnapObjects   | 设置一个数组，包含应忽略射线捕捉的对象。                              | HandleUtility.ignoreRaySnapObjects = new GameObject[] { obj }; |
+| HandleUtility.PlaceObject            | 根据射线放置对象，返回放置点的位置。                                   | Vector3 position = HandleUtility.PlaceObject(ray, out normal); |
+| HandleUtility.Repaint                | 立即重绘当前视图。                                                   | HandleUtility.Repaint();                                       |
+
 - **Gizmos公共类**
+
+| 方法/属性                          | 说明                                                                 | 示例                                                                 |
+|------------------------------------|----------------------------------------------------------------------|----------------------------------------------------------------------|
+| Gizmos.color                     | 设置或获取 Gizmos 绘制的颜色。                                          | Gizmos.color = Color.red;                                          |
+| Gizmos.matrix                    | 设置或获取 Gizmos 使用的变换矩阵。                                       | Gizmos.matrix = transform.localToWorldMatrix;                      |
+| Gizmos.DrawLine                  | 绘制一条从起点到终点的线段。                                             | Gizmos.DrawLine(Vector3.zero, new Vector3(1, 1, 1));               |
+| Gizmos.DrawWireSphere            | 绘制一个以指定位置为中心的线框球体。                                      | Gizmos.DrawWireSphere(Vector3.zero, 1.0f);                         |
+| Gizmos.DrawSphere                | 绘制一个以指定位置为中心的实心球体。                                      | Gizmos.DrawSphere(Vector3.zero, 1.0f);                             |
+| Gizmos.DrawWireCube              | 绘制一个以指定位置为中心的线框立方体。                                     | Gizmos.DrawWireCube(Vector3.zero, new Vector3(1, 1, 1));           |
+| Gizmos.DrawCube                  | 绘制一个以指定位置为中心的实心立方体。                                     | Gizmos.DrawCube(Vector3.zero, new Vector3(1, 1, 1));               |
+| Gizmos.DrawWireMesh              | 绘制一个线框网格。                                                      | Gizmos.DrawWireMesh(mesh, position);                               |
+| Gizmos.DrawMesh                  | 绘制一个实心网格。                                                      | Gizmos.DrawMesh(mesh, position);                                   |
+| Gizmos.DrawIcon                  | 在场景视图中绘制一个图标，通常用于标记位置。                               | Gizmos.DrawIcon(Vector3.zero, "MyIcon");                           |
+| Gizmos.DrawRay                   | 绘制一条从起点出发的射线。                                               | Gizmos.DrawRay(Vector3.zero, Vector3.forward * 5);                 |
+| Gizmos.ExposeMatrix              | 设置绘制对象的局部矩阵（结合 `Gizmos.matrix` 实现复杂变换）。                | Gizmos.matrix = transform.localToWorldMatrix;                      |
+| Gizmos.DrawFrustum               | 绘制一个视锥体，模拟摄像机的视角范围。                                     | Gizmos.DrawFrustum(Vector3.zero, 60, 5, 1, 1.33f);                 |
+| Gizmos.DrawWireArc               | 绘制一个线框弧形（可以结合线框球体和立方体使用）。                         | Gizmos.DrawWireArc(Vector3.zero, Vector3.up, Vector3.forward, 180, 1); |
+| Gizmos.DrawGUITexture            | 在屏幕上绘制 2D 纹理。                                                   | Gizmos.DrawGUITexture(new Rect(0, 0, 100, 100), texture);          |
+| Gizmos.color = Color.green       | 将 Gizmos 的绘制颜色设为绿色。                                            | Gizmos.color = Color.green;                                        |
+
+
 
   - **Gizmos类是什么及响应函数**
 
