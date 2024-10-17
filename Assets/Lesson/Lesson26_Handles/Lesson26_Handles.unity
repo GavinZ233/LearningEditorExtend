@@ -271,7 +271,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -330,7 +330,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712b3e75de747b4ba8fb187a0723786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStr: 
+  Label: 0
+  DrawLine: 0
+  DrawDottedLine: 0
+  DrawWireArc: 0
+  DrawSolidArc: 0
+  DrawSolidDisc: 0
+  DrawWireDisc: 0
+  DrawWireCube: 0
+  DrawPolyLine: 0
+  DrawAAConvexPolygon: 0
+  DoPositionHandle: 0
+  RotationHandle: 0
+  ScaleHandle: 0
+  FreeMoveHandle: 0
+  FreeRotateHandle: 0
+  DrawGUI: 0
 --- !u!4 &1727616096
 Transform:
   m_ObjectHideFlags: 0
@@ -338,9 +353,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727616094}
-  m_LocalRotation: {x: -0.074346885, y: -0.027801298, z: 0.02537389, w: 0.9965219}
-  m_LocalPosition: {x: 0.43840408, y: 1.4300003, z: 3.9435563}
-  m_LocalScale: {x: 0.68901545, y: 1.8707882, z: 28.008585}
+  m_LocalRotation: {x: 0.7048414, y: -0.58701086, z: -0.39595377, w: 0.042867593}
+  m_LocalPosition: {x: 24.96, y: -7.23, z: -5.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

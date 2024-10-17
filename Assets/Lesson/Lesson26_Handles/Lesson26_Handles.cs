@@ -12,7 +12,11 @@ namespace Gavin
 	{
 		private Lesson26 obj;
 
-        private void OnEnable()
+
+
+
+
+		private void OnEnable()
         {
 			obj = target as Lesson26;
         }
@@ -23,50 +27,66 @@ namespace Gavin
 			//Debug.Log(obj.transform.position);
 			Handles.color = new Color(1,0,0,0.5f);
 
-			Handles.Label(obj.transform.position+Vector3.up,"handle的文本");
+			if(obj.Label)	Handles.Label(obj.transform.position+Vector3.up,"handle的文本");
 			//划线
 
-			Handles.DrawLine(obj.transform.position, obj.transform.position+obj.transform.forward * -15, 3) ;
+			if(obj.DrawLine)	Handles.DrawLine(obj.transform.position, obj.transform.position+obj.transform.forward * -15, 3) ;
 			Handles.color = Color.blue;
 
-			Handles.DrawDottedLine(obj.transform.position, obj.transform.position + obj.transform.up * -15, 3);
+			if (obj.DrawDottedLine) Handles.DrawDottedLine(obj.transform.position, obj.transform.position + obj.transform.up * -15, 3);
 
 			//其他形状
 			Handles.color = Color.white;
-			Handles.DrawWireArc(obj.transform.position,obj.transform.up,Quaternion.Euler(0,-30,0)* obj.transform.forward, 60,-15);
+			if (obj.DrawWireArc) Handles.DrawWireArc(obj.transform.position,obj.transform.up,Quaternion.Euler(0,-30,0)* obj.transform.forward, 60,-15);
 
 			Handles.color = Color.black;
-			Handles.DrawSolidArc(obj.transform.position, obj.transform.up, Quaternion.Euler(0, -30, 0) * obj.transform.forward, 60, -15);
+			if (obj.DrawSolidArc) Handles.DrawSolidArc(obj.transform.position, obj.transform.up, Quaternion.Euler(0, -30, 0) * obj.transform.forward, 60, -15);
 
 			Handles.color = Color.gray;
-			Handles.DrawSolidDisc(obj.transform.position,obj.transform.up,5);
-			Handles.DrawWireDisc(obj.transform.position, obj.transform.up, 6);
+			if (obj.DrawSolidDisc) Handles.DrawSolidDisc(obj.transform.position,obj.transform.up,5);
+			if (obj.DrawWireDisc) Handles.DrawWireDisc(obj.transform.position, obj.transform.up, 6);
 
 			Handles.color = Color.green;
-			Handles.DrawWireCube(obj.transform.position, new Vector3(3, 4, 5));
+			if (obj.DrawWireCube) Handles.DrawWireCube(obj.transform.position, new Vector3(3, 4, 5));
 
 
 			Handles.color = Color.yellow;
 
-			Handles.DrawPolyLine(obj.transform.position, obj.transform.position + obj.transform.right * -15, obj.transform.position + obj.transform.right * -15 + obj.transform.up * -15, obj.transform.position);
+			if (obj.DrawPolyLine) Handles.DrawPolyLine(obj.transform.position, obj.transform.position + obj.transform.right * -15, obj.transform.position + obj.transform.right * -15 + obj.transform.up * -15, obj.transform.position);
 
 
-			Handles.DrawAAConvexPolygon(Vector3.zero,Vector3.right,Vector3.right+Vector3.forward,Vector3.forward);
+			if (obj.DrawAAConvexPolygon) Handles.DrawAAConvexPolygon(Vector3.zero,Vector3.right,Vector3.right+Vector3.forward,Vector3.forward);
 
 			//辅助Transform
-			obj.transform.position = Handles.DoPositionHandle(obj.transform.position,obj.transform.rotation);
-			obj.transform.rotation = Handles.RotationHandle( obj.transform.rotation, obj.transform.position);
+			if (obj.DoPositionHandle) obj.transform.position = Handles.DoPositionHandle(obj.transform.position,obj.transform.rotation);
+			if (obj.RotationHandle) obj.transform.rotation = Handles.RotationHandle( obj.transform.rotation, obj.transform.position);
 			//最后GetHandleSize是根据目标坐标与摄像机的距离设置缩放图标的比例，
 			//obj.transform.localScale = Handles.DoScaleHandle(obj.transform.localScale, obj.transform.position,obj.transform.rotation,HandleUtility.GetHandleSize(obj.transform.position));
 
-			obj.transform.localScale = Handles.ScaleHandle(obj.transform.localScale, obj.transform.position, obj.transform.rotation, HandleUtility.GetHandleSize(Vector3.zero));
+			if (obj.ScaleHandle) obj.transform.localScale = Handles.ScaleHandle(obj.transform.localScale, obj.transform.position, obj.transform.rotation, HandleUtility.GetHandleSize(Vector3.zero));
 
 			//DoScaleHandle与ScaleHandle同理，不带Do的方法是新方法
 
-			obj.transform.position = Handles.FreeMoveHandle(obj.transform.position,obj.transform.rotation,HandleUtility.GetHandleSize(obj.transform.position),Vector3.one*5,Handles.RectangleHandleCap);
+			if (obj.FreeMoveHandle) obj.transform.position = Handles.FreeMoveHandle(obj.transform.position,obj.transform.rotation,HandleUtility.GetHandleSize(obj.transform.position),Vector3.one*5,Handles.RectangleHandleCap);
 
-			obj.transform.rotation = Handles.FreeRotateHandle(obj.transform.rotation,Vector3.zero,HandleUtility.GetHandleSize(obj.transform.position));
-			
+			if (obj.FreeRotateHandle) obj.transform.rotation = Handles.FreeRotateHandle(obj.transform.rotation, obj.transform.position, HandleUtility.GetHandleSize(obj.transform.position));
+
+            if (obj.DrawGUI)
+            {
+				Handles.BeginGUI();
+
+				float w = SceneView.currentDrawingSceneView.position.width;
+				float h = SceneView.currentDrawingSceneView.position.height;
+				//GUI的高度需要向上偏移25
+                if (GUI.Button(new Rect(w-100,h-75,100,50),"Handles的Btn"))
+                {
+					Debug.Log("Handles的Btn被点击");
+                }
+
+				Handles.EndGUI();
+            }
+
+
 		}
 
 
