@@ -497,7 +497,7 @@ Mono脚本需要继承`ISerializationCallbackReceiver`接口
     public Dictionary<int, string> serDic = new Dictionary<int, string>() { { 1,"张三"},{ 2,"李四"} };//被序列化字典
     [SerializeField] private List<int> keyList = new List<int>();//序列化数据的临时容器
     [SerializeField] private List<string> valueList = new List<string>();
-
+    
     public void OnAfterDeserialize()
     {//反序列化前将临时数据装入字典
         serDic.Clear();
@@ -509,7 +509,7 @@ Mono脚本需要继承`ISerializationCallbackReceiver`接口
                 Debug.LogWarning("已有此键："+keyList[i]);
         }
     }
-
+    
     public void OnBeforeSerialize()
     {//系列化前将字典数据放入临时容器
         keyList.Clear();
@@ -526,7 +526,7 @@ Editor脚本
     private int dicCount;
     private SerializedProperty dicKeys;
     private SerializedProperty dicValues;
-
+    
     private void OnEnable()
     {
         //初始化，找到双方属性做关联
@@ -534,17 +534,17 @@ Editor脚本
         dicValues = serializedObject.FindProperty("valueList");
         dicCount = dicKeys.arraySize;
     }
-
+    
     public override void OnInspectorGUI()
     {
         dicCount = EditorGUILayout.IntField("字典数量", dicCount);
-
+    
         for (int i = dicKeys.arraySize-1; i >=dicCount; i--)
         {//删除多余键值对
             dicKeys.DeleteArrayElementAtIndex(i);
             dicValues.DeleteArrayElementAtIndex(i);
         }
-
+    
         for (int i = 0; i < dicCount; i++)
         {//扩容
             if (dicKeys.arraySize<=i)
@@ -552,7 +552,7 @@ Editor脚本
                 dicKeys.InsertArrayElementAtIndex(i);
                 dicValues.InsertArrayElementAtIndex(i);
             }
-
+    
             SerializedProperty indexKey = dicKeys.GetArrayElementAtIndex(i);
             SerializedProperty indexValue = dicValues.GetArrayElementAtIndex(i);
             EditorGUILayout.BeginHorizontal();
@@ -564,7 +564,7 @@ Editor脚本
         }
         //应用数据
         serializedObject.ApplyModifiedProperties();
-
+    
     }
 此处扩容出来的键值对是继承了上一个键值对的数据，会触发字典重复的bug，实际使用时可以考虑对扩容键值对的数据初始化     
 
@@ -574,33 +574,46 @@ Editor脚本
 ### **Scene窗口拓展**
 
 - **Handles公共类**
+[Handles官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Handles.html)
 
-| 方法/属性               | 说明                                               | 示例                                                       |
-|-------------------------|----------------------------------------------------|------------------------------------------------------------|
-| Handles.PositionHandle | 绘制一个可拖动的三维位置句柄。                    | Handles.PositionHandle(position, rotation)               |
-| Handles.ScaleHandle    | 绘制一个可拖动的三维缩放句柄。                    | Handles.ScaleHandle(scale, position, rotation, size)      |
-| Handles.RotationHandle | 绘制一个可拖动的三维旋转句柄。                    | Handles.RotationHandle(rotation, position)                |
-| Handles.DrawLine       | 在场景视图中绘制一条线。                          | Handles.DrawLine(startPosition, endPosition)              |
-| Handles.Label          | 在场景视图中指定位置绘制文本标签。                | Handles.Label(position, "Label Text")                     |
-| Handles.ArrowHandleCap | 绘制一个箭头形状的句柄，用于自定义句柄绘制。      | Handles.ArrowHandleCap(controlID, position, rotation)     |
-| Handles.CubeHandleCap  | 绘制一个立方体形状的句柄，用于自定义句柄绘制。    | Handles.CubeHandleCap(controlID, position, rotation)      |
-| Handles.SphereHandleCap| 绘制一个球形句柄，用于自定义句柄绘制。            | Handles.SphereHandleCap(controlID, position, rotation)    |
-| Handles.Button         | 在场景视图中绘制一个可点击的按钮句柄。            | Handles.Button(position, rotation, size, pickSize, capFunc) |
-| Handles.FreeMoveHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle(position, rotation, size)          |
-| Handles.Disc           | 绘制一个圆盘形旋转句柄，可以绕指定轴旋转对象。    | Handles.Disc(rotation, position, axis, size)              |
-| Handles.DrawSolidDisc  | 绘制一个实心圆盘。                                | Handles.DrawSolidDisc(position, normal, radius)           |
-| Handles.DrawWireDisc   | 绘制一个线框圆盘。                                | Handles.DrawWireDisc(position, normal, radius)            |
-| Handles.DrawAAPolyLine | 绘制一条抗锯齿线。                                | Handles.DrawAAPolyLine(points)                            |
-| Handles.RectangleHandleCap | 绘制一个矩形句柄。                           | Handles.RectangleHandleCap(controlID, position, rotation) |
-| Handles.CircleHandleCap| 绘制一个圆形句柄。                                | Handles.CircleHandleCap(controlID, position, rotation)     |
-| Handles.color          | 设置句柄的颜色。                                   | Handles.color = Color.red                                |
-| Handles.matrix         | 设置句柄的变换矩阵，用于控制句柄的世界/局部空间。 | Handles.matrix = Matrix4x4.TRS(position, rotation, scale) |
 
+| 方法/属性               | 说明                                               | 示例                                                       | 图例                                                     |
+|-------------------------|----------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
+| Handles.color          | 设置句柄的颜色。                                   | Handles.color = Color.red                                |                                 |
+| Handles.Label          | 在场景视图中指定位置绘制文本标签。                | Handles.Label(position, "Label Text")                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/label.png) |
+| Handles.Button         | 在场景视图中绘制一个可点击的按钮句柄。            | Handles.Button(position, rotation, size, pickSize, capFunc) |                                                              |
+| Handles.DrawLine       | 在场景视图中绘制一条线。                          | Handles.DrawLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/line.png) |
+| Handles.DrawDottedLine       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/line.png) |
+| Handles.DrawWireArc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire arc.png) |
+| Handles.DrawSolidArc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/solid arc.png) |
+| Handles.DrawSolidDisc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/solid disc.png) |
+| Handles.DrawWireDisc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire disc.png) |
+| Handles.DrawWireCube       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire cube.png) |
+| Handles.DrawWireDisc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire disc.png) |
+| Handles.DrawAAPolyLine | 绘制一个poly面                                | Handles.DrawAAPolyLine(points)                            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/aa poly line.png) |
+| Handles.DrawPolyLine       | 在场景视图中绘制一条poly线，可以多个中转点。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/poly line.png) |
+
+| Handles.Disc           | 绘制一个圆盘形旋转句柄，可以绕指定轴旋转对象。    | Handles.Disc(rotation, position, axis, size)              |  |
+| Handles.DrawSolidDisc  | 绘制一个实心圆盘。                                | Handles.DrawSolidDisc(position, normal, radius)           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/solid disc.png) |
+| Handles.DrawWireDisc   | 绘制一个线框圆盘。                                | Handles.DrawWireDisc(position, normal, radius)            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire disc.png) |
+| Handles.RectangleHandleCap | 绘制一个矩形句柄。                           | Handles.RectangleHandleCap(controlID, position, rotation) |  |
+| Handles.CircleHandleCap| 绘制一个圆形句柄。                                | Handles.CircleHandleCap(controlID, position, rotation)     |  |
+| Handles.matrix         | 设置句柄的变换矩阵，用于控制句柄的世界/局部空间。 | Handles.matrix = Matrix4x4.TRS(position, rotation, scale) |  |
+
+| Handles.PositionHandle | 绘制一个可拖动的三维位置句柄。                    | Handles.PositionHandle(position, rotation)               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/position handle.png) |
+| Handles.ScaleHandle    | 绘制一个可拖动的三维缩放句柄。                    | Handles.ScaleHandle(scale, position, rotation, size)      | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/scale handle.png) |
+| Handles.RotationHandle | 绘制一个可拖动的三维旋转句柄。                    | Handles.RotationHandle(rotation, position)                | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/rotation handle.png) |
+| Handles.FreeMoveHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle(position, rotation, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/free move handle.png) |
+| Handles.FreeRotationHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle( rotation,position, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/free rotation handle.png) |
+
+| Handles.ArrowHandleCap | 绘制一个箭头形状的句柄，用于自定义句柄绘制。      | Handles.ArrowHandleCap(controlID, position, rotation)     |  |
+| Handles.CubeHandleCap  | 绘制一个立方体形状的句柄，用于自定义句柄绘制。    | Handles.CubeHandleCap(controlID, position, rotation)      |  |
+| Handles.SphereHandleCap| 绘制一个球形句柄，用于自定义句柄绘制。            | Handles.SphereHandleCap(controlID, position, rotation)    |  |
 
 
 
   - **Handles类是什么及响应函数**   
-  
+
 
 
   - **文本、线段、虚线**

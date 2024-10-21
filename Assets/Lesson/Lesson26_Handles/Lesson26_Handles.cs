@@ -82,11 +82,21 @@ namespace Gavin
                 {
 					Debug.Log("Handles的Btn被点击");
                 }
+				GUILayout.BeginArea(new Rect(w-100,h-100,100,50));
 
+				GUILayout.Label("悬浮文字");
+
+				GUILayout.EndArea();
 				Handles.EndGUI();
+
+				float dis = HandleUtility.DistanceToLine(Vector3.zero,Vector3.right);
+				Debug.Log(dis);
+
+				
+
             }
 
-
+			Handles.matrix = Matrix4x4.TRS(obj.transform.position, obj.transform.rotation, obj.transform.localScale);
 		}
 
 
