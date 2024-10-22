@@ -1,6 +1,7 @@
 # LearningEditorExtend
 
-Unity版本：`2021.3.11f1`
+![Static Badge](https://img.shields.io/badge/Unity-2021.3.11f1-blue)
+
 
 ## **知识点**
 
@@ -10,13 +11,13 @@ UnityEditor命名空间的脚本不可以被打包出去，需要放到`Editor`�
 
 
 
-| 作用                                        | 写法                                                        | 备注                            | 预览图 |
-| ------------------------------------------- | ----------------------------------------------------------- | ------------------------------- | ------ |
+| 作用                                        | 写法                                                        | 备注                            | 
+| ------------------------------------------- | ----------------------------------------------------------- | ------------------------------- |
 | `编辑器顶部菜单栏`                          | [MenuItem("GavinTools/CreatLesson")]                        |                                 |
-| 顶部菜单的GameObject和`Hierarchy右键菜单`   | [MenuItem("GameObject/Lesson1/HierarchyFun")]               |                                 |        |
-| `Project右键菜单`                           | [MenuItem("Assets/Lesson1/AssetFun")]                       |                                 |        |
-| `脚本右键菜单`                              | [MenuItem("CONTEXT/Lesson1_Test/Lesson1/BehaviourFun")]     |                                 |        |
-| 顶部菜单的Component为目标GameObject添加脚本 | [AddComponentMenu("Unity编辑器拓展/添加脚本/Lesson1_Test")] | using UnityEngine; 不支持快捷键 |        |
+| 顶部菜单的GameObject和`Hierarchy右键菜单`   | [MenuItem("GameObject/Lesson1/HierarchyFun")]               |                                 | 
+| `Project右键菜单`                           | [MenuItem("Assets/Lesson1/AssetFun")]                       |                                 | 
+| `脚本右键菜单`                              | [MenuItem("CONTEXT/Lesson1_Test/Lesson1/BehaviourFun")]     |                                 | 
+| 顶部菜单的Component为目标GameObject添加脚本 | [AddComponentMenu("Unity编辑器拓展/添加脚本/Lesson1_Test")] | using UnityEngine; 不支持快捷键 | 
 
 ### **快捷键**    
 
@@ -584,31 +585,20 @@ Editor脚本
 | Handles.Button         | 在场景视图中绘制一个可点击的按钮句柄。            | Handles.Button(position, rotation, size, pickSize, capFunc) |                                                              |
 | Handles.DrawLine       | 在场景视图中绘制一条线。                          | Handles.DrawLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/line.png) |
 | Handles.DrawDottedLine       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/line.png) |
-| Handles.DrawWireArc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire arc.png) |
-| Handles.DrawSolidArc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/solid arc.png) |
-| Handles.DrawSolidDisc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/solid disc.png) |
-| Handles.DrawWireDisc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire disc.png) |
-| Handles.DrawWireCube       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire cube.png) |
-| Handles.DrawWireDisc       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire disc.png) |
-| Handles.DrawAAPolyLine | 绘制一个poly面                                | Handles.DrawAAPolyLine(points)                            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/aa poly line.png) |
-| Handles.DrawPolyLine       | 在场景视图中绘制一条poly线，可以多个中转点。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/poly line.png) |
-
-| Handles.Disc           | 绘制一个圆盘形旋转句柄，可以绕指定轴旋转对象。    | Handles.Disc(rotation, position, axis, size)              |  |
-| Handles.DrawSolidDisc  | 绘制一个实心圆盘。                                | Handles.DrawSolidDisc(position, normal, radius)           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/solid disc.png) |
-| Handles.DrawWireDisc   | 绘制一个线框圆盘。                                | Handles.DrawWireDisc(position, normal, radius)            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/wire disc.png) |
-| Handles.RectangleHandleCap | 绘制一个矩形句柄。                           | Handles.RectangleHandleCap(controlID, position, rotation) |  |
-| Handles.CircleHandleCap| 绘制一个圆形句柄。                                | Handles.CircleHandleCap(controlID, position, rotation)     |  |
-| Handles.matrix         | 设置句柄的变换矩阵，用于控制句柄的世界/局部空间。 | Handles.matrix = Matrix4x4.TRS(position, rotation, scale) |  |
-
-| Handles.PositionHandle | 绘制一个可拖动的三维位置句柄。                    | Handles.PositionHandle(position, rotation)               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/position handle.png) |
-| Handles.ScaleHandle    | 绘制一个可拖动的三维缩放句柄。                    | Handles.ScaleHandle(scale, position, rotation, size)      | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/scale handle.png) |
-| Handles.RotationHandle | 绘制一个可拖动的三维旋转句柄。                    | Handles.RotationHandle(rotation, position)                | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/rotation handle.png) |
-| Handles.FreeMoveHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle(position, rotation, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/free move handle.png) |
-| Handles.FreeRotationHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle( rotation,position, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/free rotation handle.png) |
-
-| Handles.ArrowHandleCap | 绘制一个箭头形状的句柄，用于自定义句柄绘制。      | Handles.ArrowHandleCap(controlID, position, rotation)     |  |
-| Handles.CubeHandleCap  | 绘制一个立方体形状的句柄，用于自定义句柄绘制。    | Handles.CubeHandleCap(controlID, position, rotation)      |  |
-| Handles.SphereHandleCap| 绘制一个球形句柄，用于自定义句柄绘制。            | Handles.SphereHandleCap(controlID, position, rotation)    |  |
+| Handles.DrawWireArc       | 在场景视图中绘制一条弧线。                          | Handles.DrawWireArc(center,normal,from,angle,radius)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireArc.png) |
+| Handles.DrawSolidArc       | 在场景视图中绘制一个扇形。                          | Handles.DrawSolidArc(center,normal,from,angle,radius)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawSolidArc.png) |
+| Handles.DrawSolidDisc  | 绘制一个实心圆盘。                                | Handles.DrawSolidDisc(position, normal, radius)           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawSolidDisc.png) |
+| Handles.DrawWireDisc   | 绘制一个线框圆盘。                                | Handles.DrawWireDisc(position, normal, radius)            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireDisc.png) |
+| Handles.DrawWireCube       | 在场景视图中绘制一个矩形。                          | Handles.DrawWireCube(center, size)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireCube.png) |
+| Handles.DrawAAPolyLine | 绘制一个poly面                                | Handles.DrawAAPolyLine(points)                            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawAAPolyLine.png) |
+| Handles.DrawPolyLine       | 在场景视图中绘制一条poly线，可以多个中转点。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawPolyLine.png) |
+| Handles.PositionHandle | 绘制一个可拖动的三维位置句柄。                    | obj=Handles.PositionHandle(position, rotation)               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/PositionHandle.png) |
+| Handles.ScaleHandle    | 绘制一个可拖动的三维缩放句柄。                    | Handles.ScaleHandle(scale, position, rotation, size)      | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/ScaleHandle.png) |
+| Handles.RotationHandle | 绘制一个可拖动的三维旋转句柄。                    | Handles.RotationHandle(rotation, position)                | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/RotationHandle.png) |
+| Handles.FreeMoveHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle(position, rotation, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/FreeMoveHandle.png) |
+| Handles.FreeRotationHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle( rotation,position, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/FreeRotationHandle.png) |
+| Handles.BeginGUI | 开始绘制GUI。      |BeginGUI和EndGUI包裹着GUI逻辑，实现在Scene绘制GUi  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawGUI.png)  |
+| Handles.EndGUI  | GUI绘制结束。    |   |  |
 
 
 
