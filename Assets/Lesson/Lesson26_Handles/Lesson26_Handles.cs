@@ -12,25 +12,25 @@ namespace Gavin
 	{
 		private Lesson26 obj;
 
-
-
-
-
 		private void OnEnable()
         {
 			obj = target as Lesson26;
         }
 
-        private void OnSceneGUI() {
+		private void OnSceneGUI() {
 			Debug.Log("Handle窗口OnSceneGUI");
 
 			//Debug.Log(obj.transform.position);
-			Handles.color = new Color(1,0,0,0.5f);
-
+			Handles.color = Color.red;
+			GUI.color = Color.red;
 			if(obj.Label)	Handles.Label(obj.transform.position+Vector3.up,"handle的文本");
+            if (Handles.Button(obj.transform.position+ Vector3.down, obj.transform.rotation,1,3, Handles.CubeHandleCap))
+            {
+				Debug.Log("BtnClick");
+            }
 			//划线
 
-			if(obj.DrawLine)	Handles.DrawLine(obj.transform.position, obj.transform.position+obj.transform.forward * -15, 3) ;
+			if (obj.DrawLine)	Handles.DrawLine(obj.transform.position, obj.transform.position+obj.transform.forward * -15, 3) ;
 			Handles.color = Color.blue;
 
 			if (obj.DrawDottedLine) Handles.DrawDottedLine(obj.transform.position, obj.transform.position + obj.transform.up * -15, 3);

@@ -11,13 +11,13 @@ UnityEditor命名空间的脚本不可以被打包出去，需要放到`Editor`�
 
 
 
-| 作用                                        | 写法                                                        | 备注                            | 
+| 作用                                        | 写法                                                        | 备注                            |
 | ------------------------------------------- | ----------------------------------------------------------- | ------------------------------- |
 | `编辑器顶部菜单栏`                          | [MenuItem("GavinTools/CreatLesson")]                        |                                 |
-| 顶部菜单的GameObject和`Hierarchy右键菜单`   | [MenuItem("GameObject/Lesson1/HierarchyFun")]               |                                 | 
-| `Project右键菜单`                           | [MenuItem("Assets/Lesson1/AssetFun")]                       |                                 | 
-| `脚本右键菜单`                              | [MenuItem("CONTEXT/Lesson1_Test/Lesson1/BehaviourFun")]     |                                 | 
-| 顶部菜单的Component为目标GameObject添加脚本 | [AddComponentMenu("Unity编辑器拓展/添加脚本/Lesson1_Test")] | using UnityEngine; 不支持快捷键 | 
+| 顶部菜单的GameObject和`Hierarchy右键菜单`   | [MenuItem("GameObject/Lesson1/HierarchyFun")]               |                                 |
+| `Project右键菜单`                           | [MenuItem("Assets/Lesson1/AssetFun")]                       |                                 |
+| `脚本右键菜单`                              | [MenuItem("CONTEXT/Lesson1_Test/Lesson1/BehaviourFun")]     |                                 |
+| 顶部菜单的Component为目标GameObject添加脚本 | [AddComponentMenu("Unity编辑器拓展/添加脚本/Lesson1_Test")] | using UnityEngine; 不支持快捷键 |
 
 ### **快捷键**    
 
@@ -225,7 +225,7 @@ GUILayout.ExpandHeight(false);
 
 ### **EditorGUIUtility**
 
-[EditorGUIUtility官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/EditorGUIUtility.html)       
+[EditorGUIUtility官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/EditorGUIUtility.html)       
 
 工具类加载的资源需要在一级文件夹`Editor Default Resources`内寻找。    
 
@@ -280,7 +280,7 @@ GUILayout.ExpandHeight(false);
 
 
 ### **Event公共类**
-[Event官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Event.html)       
+[Event官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/Event.html)       
 
 **Event**
 | **属性/方法**     | **描述**                                                |
@@ -461,25 +461,25 @@ GUILayout.ExpandHeight(false);
 
 ##### 公共函数
 
-| **函数**                     | **描述**                                                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| ClearArray                   | 从数组中删除所有元素。                                                                                             |
-| Copy                         | 返回 SerializedProperty 迭代器的副本（保留当前状态）。如果您想在继续迭代的同时保存当前属性的引用，则此方法很有用。 |
-| CountInProperty              | 计算此属性的可见子属性的数量，包括属性本身。                                                                       |
-| CountRemaining               | 计算剩余可见属性的数量。                                                                                           |
+| **函数**                       | **描述**                                                                                                           |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| ClearArray                     | 从数组中删除所有元素。                                                                                             |
+| Copy                           | 返回 SerializedProperty 迭代器的副本（保留当前状态）。如果您想在继续迭代的同时保存当前属性的引用，则此方法很有用。 |
+| CountInProperty                | 计算此属性的可见子属性的数量，包括属性本身。                                                                       |
+| CountRemaining                 | 计算剩余可见属性的数量。                                                                                           |
 | `DeleteArrayElementAtIndex`    | 删除数组中指定索引处的元素。                                                                                       |
-| DeleteCommand                | 删除已序列化的属性。                                                                                               |
-| DuplicateCommand             | 复制已序列化的属性。                                                                                               |
-| FindPropertyRelative         | 从当前属性的相关路径检索 SerializedProperty。                                                                      |
+| DeleteCommand                  | 删除已序列化的属性。                                                                                               |
+| DuplicateCommand               | 复制已序列化的属性。                                                                                               |
+| FindPropertyRelative           | 从当前属性的相关路径检索 SerializedProperty。                                                                      |
 | `GetArrayElementAtIndex`       | 返回数组中指定索引处的元素。                                                                                       |
-| GetEndProperty               | 检索定义此属性起始范围的 SerializedProperty。                                                                      |
-| GetEnumerator                | 检索用于枚举当前属性的可见子属性的迭代器。如果该属性是数组，则它将枚举数组元素。                                   |
+| GetEndProperty                 | 检索定义此属性起始范围的 SerializedProperty。                                                                      |
+| GetEnumerator                  | 检索用于枚举当前属性的可见子属性的迭代器。如果该属性是数组，则它将枚举数组元素。                                   |
 | `GetFixedBufferElementAtIndex` | 返回固定缓冲区中指定索引处的元素。                                                                                 |
 | `InsertArrayElementAtIndex`    | 在数组中的指定索引处插入空元素。                                                                                   |
-| MoveArrayElement             | 将数组元素从 srcIndex 移到 dstIndex。                                                                              |
-| Next                         | 移至下一个属性。                                                                                                   |
-| NextVisible                  | 移至下一个可见属性。                                                                                               |
-| Reset                        | 移至对象的第一个属性。                                                                                             |
+| MoveArrayElement               | 将数组元素从 srcIndex 移到 dstIndex。                                                                              |
+| Next                           | 移至下一个属性。                                                                                                   |
+| NextVisible                    | 移至下一个可见属性。                                                                                               |
+| Reset                          | 移至对象的第一个属性。                                                                                             |
 
 ##### 静态函数
 
@@ -575,98 +575,100 @@ Editor脚本
 ### **Scene窗口拓展**
 
 - **Handles公共类**
-[Handles官方文档](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Handles.html)
+[Handles官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/Handles.html)         
+ using UnityEditor;
+`Handles.Button`需要传入的`capFunc`此处并未记录，因为Button不常用，故不记录，如果需要查看官方文档。       
+`OnSceneGUI`绘制的前提是，选中该物体    
 
 
-| 方法/属性               | 说明                                               | 示例                                                       | 图例                                                     |
-|-------------------------|----------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
-| Handles.color          | 设置句柄的颜色。                                   | Handles.color = Color.red                                |                                 |
-| Handles.Label          | 在场景视图中指定位置绘制文本标签。                | Handles.Label(position, "Label Text")                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/label.png) |
-| Handles.Button         | 在场景视图中绘制一个可点击的按钮句柄。            | Handles.Button(position, rotation, size, pickSize, capFunc) |                                                              |
-| Handles.DrawLine       | 在场景视图中绘制一条线。                          | Handles.DrawLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/line.png) |
-| Handles.DrawDottedLine       | 在场景视图中绘制一条虚线。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/line.png) |
-| Handles.DrawWireArc       | 在场景视图中绘制一条弧线。                          | Handles.DrawWireArc(center,normal,from,angle,radius)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireArc.png) |
-| Handles.DrawSolidArc       | 在场景视图中绘制一个扇形。                          | Handles.DrawSolidArc(center,normal,from,angle,radius)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawSolidArc.png) |
-| Handles.DrawSolidDisc  | 绘制一个实心圆盘。                                | Handles.DrawSolidDisc(position, normal, radius)           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawSolidDisc.png) |
-| Handles.DrawWireDisc   | 绘制一个线框圆盘。                                | Handles.DrawWireDisc(position, normal, radius)            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireDisc.png) |
-| Handles.DrawWireCube       | 在场景视图中绘制一个矩形。                          | Handles.DrawWireCube(center, size)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireCube.png) |
-| Handles.DrawAAPolyLine | 绘制一个poly面                                | Handles.DrawAAPolyLine(points)                            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawAAPolyLine.png) |
-| Handles.DrawPolyLine       | 在场景视图中绘制一条poly线，可以多个中转点。                          | Handles.DrawDottedLine(startPosition, endPosition)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawPolyLine.png) |
-| Handles.PositionHandle | 绘制一个可拖动的三维位置句柄。                    | obj=Handles.PositionHandle(position, rotation)               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/PositionHandle.png) |
-| Handles.ScaleHandle    | 绘制一个可拖动的三维缩放句柄。                    | Handles.ScaleHandle(scale, position, rotation, size)      | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/ScaleHandle.png) |
-| Handles.RotationHandle | 绘制一个可拖动的三维旋转句柄。                    | Handles.RotationHandle(rotation, position)                | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/RotationHandle.png) |
-| Handles.FreeMoveHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle(position, rotation, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/FreeMoveHandle.png) |
-| Handles.FreeRotationHandle | 绘制一个可以自由移动的句柄。                      | Handles.FreeMoveHandle( rotation,position, size)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/FreeRotationHandle.png) |
-| Handles.BeginGUI | 开始绘制GUI。      |BeginGUI和EndGUI包裹着GUI逻辑，实现在Scene绘制GUi  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawGUI.png)  |
-| Handles.EndGUI  | GUI绘制结束。    |   |  |
+| 方法/属性                   | 说明                                                                    | 示例                                                        | 图例                                                                                                           |
+| --------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Handles.color               | 设置句柄的颜色。                                                        | Handles.color = Color.red                                   |                                                                                                                |
+| Handles.Label               | 在场景视图中指定位置绘制文本标签。                                      | Handles.Label(position, "Label Text")                       | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/label.png)               |
+| Handles.Button              | 在场景视图中绘制一个可点击的按钮句柄。不同的`capFunc`呈现不同的点击样式 | Handles.Button(position, rotation, size, pickSize, capFunc) |                                                                                                                |
+| Handles.DrawLine            | 在场景视图中绘制一条线。                                                | Handles.DrawLine(startPosition, endPosition)                | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawLine.png)            |
+| Handles.DrawDottedLine      | 在场景视图中绘制一条虚线。                                              | Handles.DrawDottedLine(startPosition, endPosition)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawDottedLine.png)      |
+| Handles.DrawWireArc         | 在场景视图中绘制一条弧线。                                              | Handles.DrawWireArc(center,normal,from,angle,radius)        | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireArc.png)         |
+| Handles.DrawSolidArc        | 在场景视图中绘制一个扇形。                                              | Handles.DrawSolidArc(center,normal,from,angle,radius)       | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawSolidArc.png)        |
+| Handles.DrawSolidDisc       | 绘制一个实心圆盘。                                                      | Handles.DrawSolidDisc(position, normal, radius)             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawSolidDisc.png)       |
+| Handles.DrawWireDisc        | 绘制一个线框圆盘。                                                      | Handles.DrawWireDisc(position, normal, radius)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireDisc.png)        |
+| Handles.DrawWireCube        | 在场景视图中绘制一个矩形。                                              | Handles.DrawWireCube(center, size)                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawWireCube.png)        |
+| Handles.DrawAAConvexPolygon | 绘制一个poly面                                                          | Handles.DrawAAConvexPolygon(points)                         | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawAAConvexPolygon.png) |
+| Handles.DrawPolyLine        | 在场景视图中绘制一条poly线，可以多个中转点。                            | Handles.DrawDottedLine(startPosition, endPosition)          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawPolyLine.png)        |
+| Handles.PositionHandle      | 绘制一个可拖动的三维位置句柄。                                          | obj=Handles.PositionHandle(position, rotation)              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/PositionHandle.png)      |
+| Handles.ScaleHandle         | 绘制一个可拖动的三维缩放句柄。                                          | Handles.ScaleHandle(scale, position, rotation, size)        | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/ScaleHandle.png)         |
+| Handles.RotationHandle      | 绘制一个可拖动的三维旋转句柄。                                          | Handles.RotationHandle(rotation, position)                  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/RotationHandle.png)      |
+| Handles.FreeMoveHandle      | 绘制一个可以自由移动的句柄。重载可以加入`snap`作为Ctrl时的固定移动距离  | Handles.FreeMoveHandle(position, rotation, size)            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/FreeMoveHandle.png)      |
+| Handles.FreeRotationHandle  | 绘制一个可以自由移动的句柄。                                            | Handles.FreeRotateHandle(rotation,position, size)           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/FreeRotateHandle.png)    |
+| Handles.BeginGUI            | 开始绘制GUI。                                                           | BeginGUI和EndGUI包裹着GUI逻辑，实现在Scene绘制GUi           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/handles/DrawGUI.png)             |
+| Handles.EndGUI              | GUI绘制结束。                                                           |                                                             |                                                                                                                |
 
 
 
-  - **Handles类是什么及响应函数**   
+
+代码示例：      
+
+	[CustomEditor(typeof(TargetMono))]
+	public class Handles: Editor
+	{
+		private TargetMono obj;
+	
+		private void OnEnable()
+	    { obj = target as TargetMono;}
+		
+		private void OnSceneGUI() {
+	    //Logic
+		}
+	}
 
 
-
-  - **文本、线段、虚线**
-
-  - **弧线、圆、立方体，几何体**
-
-  - **移动、旋转、缩放**
-
-  - **自由移动、自由旋转**
-
-  - **显示GUI**
 
 - **HandleUtility公共类**
+[HandleUtility官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/HandleUtility.html)       
+using UnityEditor;
 
-
-| 方法/属性                              | 说明                                                                | 示例                                                            |
-|----------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------|
-| HandleUtility.GUIPointToWorldRay     | 将 GUI 点转换为射线（屏幕坐标转换为世界坐标射线）。                  | Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition); |
-| HandleUtility.WorldToGUIPoint        | 将世界坐标转换为 GUI 坐标。                                          | Vector2 guiPoint = HandleUtility.WorldToGUIPoint(worldPosition); |
-| HandleUtility.WorldToGUIPointWithDepth | 将世界坐标转换为 GUI 坐标，并返回深度信息。                          | Vector3 guiPointWithDepth = HandleUtility.WorldToGUIPointWithDepth(worldPosition); |
-| HandleUtility.GetHandleSize          | 获取与场景视图中给定位置相关的缩放因子，用于动态调整句柄大小。        | float handleSize = HandleUtility.GetHandleSize(position);      |
-| HandleUtility.PickGameObject         | 在鼠标点击的地方拾取游戏对象。                                       | GameObject pickedObj = HandleUtility.PickGameObject(mousePosition, ignoreSelection); |
-| HandleUtility.PickRectObjects        | 在给定的矩形区域内拾取所有对象。                                     | GameObject[] pickedObjs = HandleUtility.PickRectObjects(rect, allowSceneObjects); |
-| HandleUtility.AddDefaultControl      | 将指定的控件 ID 设置为默认控件，避免 UI 控件接收输入。               | HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive)); |
-| HandleUtility.NearestControl         | 获取当前最近的控件 ID，用于处理交互逻辑。                             | int nearestID = HandleUtility.nearestControl;                 |
-| HandleUtility.DistanceToLine         | 计算鼠标位置与线段之间的距离，用于检测交互。                           | float distance = HandleUtility.DistanceToLine(p1, p2);        |
-| HandleUtility.DistanceToCircle       | 计算鼠标位置与圆之间的距离。                                          | float distance = HandleUtility.DistanceToCircle(center, radius); |
-| HandleUtility.IgnoreRaySnapObjects   | 设置一个数组，包含应忽略射线捕捉的对象。                              | HandleUtility.ignoreRaySnapObjects = new GameObject[] { obj }; |
-| HandleUtility.PlaceObject            | 根据射线放置对象，返回放置点的位置。                                   | Vector3 position = HandleUtility.PlaceObject(ray, out normal); |
-| HandleUtility.Repaint                | 立即重绘当前视图。                                                   | HandleUtility.Repaint();                                       |
+| 方法/属性                              | 说明                                                           | 示例                                                                                 |
+| -------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `HandleUtility.GUIPointToWorldRay`     | 将 GUI 点转换为射线（屏幕坐标转换为世界坐标射线）。            | Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);             |
+| `HandleUtility.WorldToGUIPoint`        | 将世界坐标转换为 GUI 坐标。                                    | Vector2 guiPoint = HandleUtility.WorldToGUIPoint(worldPosition);                     |
+| HandleUtility.WorldToGUIPointWithDepth | 将世界坐标转换为 GUI 坐标，并返回深度信息。                    | Vector3 guiPointWithDepth = HandleUtility.WorldToGUIPointWithDepth(worldPosition);   |
+| `HandleUtility.GetHandleSize`          | 获取与场景视图中给定位置相关的缩放因子，用于动态调整句柄大小。 | float handleSize = HandleUtility.GetHandleSize(position);                            |
+| `HandleUtility.PickGameObject`         | 在鼠标点击的地方拾取游戏对象。                                 | GameObject pickedObj = HandleUtility.PickGameObject(mousePosition, ignoreSelection); |
+| HandleUtility.PickRectObjects          | 在给定的矩形区域内拾取所有对象。                               | GameObject[] pickedObjs = HandleUtility.PickRectObjects(rect, allowSceneObjects);    |
+| HandleUtility.AddDefaultControl        | 将指定的控件 ID 设置为默认控件，避免 UI 控件接收输入。         | HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));         |
+| HandleUtility.NearestControl           | 获取当前最近的控件 ID，用于处理交互逻辑。                      | int nearestID = HandleUtility.nearestControl;                                        |
+| HandleUtility.DistanceToLine           | 计算鼠标位置与线段之间的距离，用于检测交互。                   | float distance = HandleUtility.DistanceToLine(p1, p2);                               |
+| `HandleUtility.DistanceToCircle`       | 计算鼠标位置与圆之间的距离。                                   | float distance = HandleUtility.DistanceToCircle(center, radius);                     |
+| HandleUtility.IgnoreRaySnapObjects     | 设置一个数组，包含应忽略射线捕捉的对象。                       | HandleUtility.ignoreRaySnapObjects = new GameObject[] { obj };                       |
+| HandleUtility.PlaceObject              | 根据射线放置对象，返回放置点的位置。                           | Vector3 position = HandleUtility.PlaceObject(ray, out normal);                       |
+| HandleUtility.Repaint                  | 立即重绘当前视图。                                             | HandleUtility.Repaint();                                                             |
 
 - **Gizmos公共类**
-
-| 方法/属性                          | 说明                                                                 | 示例                                                                 |
-|------------------------------------|----------------------------------------------------------------------|----------------------------------------------------------------------|
-| Gizmos.color                     | 设置或获取 Gizmos 绘制的颜色。                                          | Gizmos.color = Color.red;                                          |
-| Gizmos.matrix                    | 设置或获取 Gizmos 使用的变换矩阵。                                       | Gizmos.matrix = transform.localToWorldMatrix;                      |
-| Gizmos.DrawLine                  | 绘制一条从起点到终点的线段。                                             | Gizmos.DrawLine(Vector3.zero, new Vector3(1, 1, 1));               |
-| Gizmos.DrawWireSphere            | 绘制一个以指定位置为中心的线框球体。                                      | Gizmos.DrawWireSphere(Vector3.zero, 1.0f);                         |
-| Gizmos.DrawSphere                | 绘制一个以指定位置为中心的实心球体。                                      | Gizmos.DrawSphere(Vector3.zero, 1.0f);                             |
-| Gizmos.DrawWireCube              | 绘制一个以指定位置为中心的线框立方体。                                     | Gizmos.DrawWireCube(Vector3.zero, new Vector3(1, 1, 1));           |
-| Gizmos.DrawCube                  | 绘制一个以指定位置为中心的实心立方体。                                     | Gizmos.DrawCube(Vector3.zero, new Vector3(1, 1, 1));               |
-| Gizmos.DrawWireMesh              | 绘制一个线框网格。                                                      | Gizmos.DrawWireMesh(mesh, position);                               |
-| Gizmos.DrawMesh                  | 绘制一个实心网格。                                                      | Gizmos.DrawMesh(mesh, position);                                   |
-| Gizmos.DrawIcon                  | 在场景视图中绘制一个图标，通常用于标记位置。                               | Gizmos.DrawIcon(Vector3.zero, "MyIcon");                           |
-| Gizmos.DrawRay                   | 绘制一条从起点出发的射线。                                               | Gizmos.DrawRay(Vector3.zero, Vector3.forward * 5);                 |
-| Gizmos.ExposeMatrix              | 设置绘制对象的局部矩阵（结合 `Gizmos.matrix` 实现复杂变换）。                | Gizmos.matrix = transform.localToWorldMatrix;                      |
-| Gizmos.DrawFrustum               | 绘制一个视锥体，模拟摄像机的视角范围。                                     | Gizmos.DrawFrustum(Vector3.zero, 60, 5, 1, 1.33f);                 |
-| Gizmos.DrawWireArc               | 绘制一个线框弧形（可以结合线框球体和立方体使用）。                         | Gizmos.DrawWireArc(Vector3.zero, Vector3.up, Vector3.forward, 180, 1); |
-| Gizmos.DrawGUITexture            | 在屏幕上绘制 2D 纹理。                                                   | Gizmos.DrawGUITexture(new Rect(0, 0, 100, 100), texture);          |
-| Gizmos.color = Color.green       | 将 Gizmos 的绘制颜色设为绿色。                                            | Gizmos.color = Color.green;                                        |
+[Gizmos官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/Gizmos.html)           
+using UnityEngine;      
+`OnDrawGizmosSelected`为仅选中时执行，`OnDrawGizmos`不需要选中也会执行      
 
 
+| 方法/属性                  | 说明                                                          | 示例                                                                   | 图例 |
+| -------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- | ---- |
+| Gizmos.color               | 设置或获取 Gizmos 绘制的颜色。                                | Gizmos.color = Color.red;                                              |      |
+| Gizmos.matrix              | 设置或获取 Gizmos 使用的变换矩阵。                            | Gizmos.matrix = transform.localToWorldMatrix;                          |      |
+| Gizmos.DrawLine            | 绘制一条从起点到终点的线段。                                  | Gizmos.DrawLine(Vector3.zero, new Vector3(1, 1, 1));                   |      |
+| Gizmos.DrawWireSphere      | 绘制一个以指定位置为中心的线框球体。                          | Gizmos.DrawWireSphere(Vector3.zero, 1.0f);                             |      |
+| Gizmos.DrawSphere          | 绘制一个以指定位置为中心的实心球体。                          | Gizmos.DrawSphere(Vector3.zero, 1.0f);                                 |      |
+| Gizmos.DrawWireCube        | 绘制一个以指定位置为中心的线框立方体。                        | Gizmos.DrawWireCube(Vector3.zero, new Vector3(1, 1, 1));               |      |
+| Gizmos.DrawCube            | 绘制一个以指定位置为中心的实心立方体。                        | Gizmos.DrawCube(Vector3.zero, new Vector3(1, 1, 1));                   |      |
+| Gizmos.DrawWireMesh        | 绘制一个线框网格。                                            | Gizmos.DrawWireMesh(mesh, position);                                   |      |
+| Gizmos.DrawMesh            | 绘制一个实心网格。                                            | Gizmos.DrawMesh(mesh, position);                                       |      |
+| Gizmos.DrawIcon            | 在场景视图中绘制一个图标，通常用于标记位置。                  | Gizmos.DrawIcon(Vector3.zero, "MyIcon");                               |      |
+| Gizmos.DrawRay             | 绘制一条从起点出发的射线。                                    | Gizmos.DrawRay(Vector3.zero, Vector3.forward * 5);                     |      |
+| Gizmos.ExposeMatrix        | 设置绘制对象的局部矩阵（结合 `Gizmos.matrix` 实现复杂变换）。 | Gizmos.matrix = transform.localToWorldMatrix;                          |      |
+| Gizmos.DrawFrustum         | 绘制一个视锥体，模拟摄像机的视角范围。                        | Gizmos.DrawFrustum(Vector3.zero, 60, 5, 1, 1.33f);                     |      |
+| Gizmos.DrawWireArc         | 绘制一个线框弧形（可以结合线框球体和立方体使用）。            | Gizmos.DrawWireArc(Vector3.zero, Vector3.up, Vector3.forward, 180, 1); |      |
+| Gizmos.DrawGUITexture      | 在屏幕上绘制 2D 纹理。                                        | Gizmos.DrawGUITexture(new Rect(0, 0, 100, 100), texture);              |      |
+| Gizmos.color = Color.green | 将 Gizmos 的绘制颜色设为绿色。                                | Gizmos.color = Color.green;                                            |      |
 
-  - **Gizmos类是什么及响应函数**
 
-  - **颜色、立方体、视锥**
-
-  - **贴图、图标**
-
-  - **线段、网格、射线**
-
-  - **球体、网格线**
 
 ### **EditorUtility公共类**
 
