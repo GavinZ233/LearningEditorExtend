@@ -652,21 +652,19 @@ using UnityEngine;
 | 方法/属性                  | 说明                                                          | 示例                                                                   | 图例 |
 | -------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- | ---- |
 | Gizmos.color               | 设置或获取 Gizmos 绘制的颜色。                                | Gizmos.color = Color.red;                                              |      |
-| Gizmos.matrix              | 设置或获取 Gizmos 使用的变换矩阵。                            | Gizmos.matrix = transform.localToWorldMatrix;                          |      |
-| Gizmos.DrawLine            | 绘制一条从起点到终点的线段。                                  | Gizmos.DrawLine(Vector3.zero, new Vector3(1, 1, 1));                   |      |
-| Gizmos.DrawWireSphere      | 绘制一个以指定位置为中心的线框球体。                          | Gizmos.DrawWireSphere(Vector3.zero, 1.0f);                             |      |
-| Gizmos.DrawSphere          | 绘制一个以指定位置为中心的实心球体。                          | Gizmos.DrawSphere(Vector3.zero, 1.0f);                                 |      |
-| Gizmos.DrawWireCube        | 绘制一个以指定位置为中心的线框立方体。                        | Gizmos.DrawWireCube(Vector3.zero, new Vector3(1, 1, 1));               |      |
-| Gizmos.DrawCube            | 绘制一个以指定位置为中心的实心立方体。                        | Gizmos.DrawCube(Vector3.zero, new Vector3(1, 1, 1));                   |      |
-| Gizmos.DrawWireMesh        | 绘制一个线框网格。                                            | Gizmos.DrawWireMesh(mesh, position);                                   |      |
-| Gizmos.DrawMesh            | 绘制一个实心网格。                                            | Gizmos.DrawMesh(mesh, position);                                       |      |
-| Gizmos.DrawIcon            | 在场景视图中绘制一个图标，通常用于标记位置。                  | Gizmos.DrawIcon(Vector3.zero, "MyIcon");                               |      |
-| Gizmos.DrawRay             | 绘制一条从起点出发的射线。                                    | Gizmos.DrawRay(Vector3.zero, Vector3.forward * 5);                     |      |
-| Gizmos.ExposeMatrix        | 设置绘制对象的局部矩阵（结合 `Gizmos.matrix` 实现复杂变换）。 | Gizmos.matrix = transform.localToWorldMatrix;                          |      |
-| Gizmos.DrawFrustum         | 绘制一个视锥体，模拟摄像机的视角范围。                        | Gizmos.DrawFrustum(Vector3.zero, 60, 5, 1, 1.33f);                     |      |
-| Gizmos.DrawWireArc         | 绘制一个线框弧形（可以结合线框球体和立方体使用）。            | Gizmos.DrawWireArc(Vector3.zero, Vector3.up, Vector3.forward, 180, 1); |      |
-| Gizmos.DrawGUITexture      | 在屏幕上绘制 2D 纹理。                                        | Gizmos.DrawGUITexture(new Rect(0, 0, 100, 100), texture);              |      |
-| Gizmos.color = Color.green | 将 Gizmos 的绘制颜色设为绿色。                                | Gizmos.color = Color.green;                                            |      |
+| Gizmos.matrix              | 设置或获取 Gizmos 使用的变换矩阵。                            | Gizmos.matrix = transform.localToWorldMatrix; 或者Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);                         |   |
+| Gizmos.DrawLine            | 绘制一条从起点到终点的线段。                                  | Gizmos.DrawLine(Vector3.zero, new Vector3(1, 1, 1));                   | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawLine.png)         |
+| Gizmos.DrawRay             | 绘制一条从起点出发的射线。                                    | Gizmos.DrawRay(Vector3.zero, Vector3.forward * 5);                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawRay.png)         |
+| Gizmos.DrawWireCube        | 绘制一个以指定位置为中心的线框立方体。                        | Gizmos.DrawWireCube(Vector3.zero, new Vector3(1, 1, 1));               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireCube.png)         |
+| Gizmos.DrawCube            | 绘制一个以指定位置为中心的实心立方体。                        | Gizmos.DrawCube(Vector3.zero, new Vector3(1, 1, 1));                   |![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawCube.png)          |
+| Gizmos.DrawWireSphere      | 绘制一个以指定位置为中心的线框球体。                          | Gizmos.DrawWireSphere(Vector3.zero, 1.0f);                             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireSphere.png)         |
+| Gizmos.DrawSphere          | 绘制一个以指定位置为中心的实心球体。                          | Gizmos.DrawSphere(Vector3.zero, 1.0f);                                 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawSphere.png)         |
+| Gizmos.DrawFrustum         | 绘制一个视锥体，模拟摄像机的视角范围。                        | Gizmos.DrawFrustum(Vector3.zero, 60, 5, 1, 1.33f);                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawFrustum.png)         |
+| Gizmos.DrawMesh            | 绘制一个实心网格。                                            | Gizmos.DrawMesh(mesh, position);                                       | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawMesh.png)         |
+| Gizmos.DrawWireMesh        | 绘制一个线框网格。                                            | Gizmos.DrawWireMesh(mesh, position);                                   |![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireMesh.png)          |
+| Gizmos.DrawIcon            | 在场景视图中绘制一个图标，通常用于标记位置。                  | Gizmos.DrawIcon(Vector3.zero, "MyIcon");                               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawIcon.png)         |
+| Gizmos.DrawGUITexture      | 在屏幕上绘制 2D 纹理。不常用                                        | Gizmos.DrawGUITexture(new Rect(0, 0, 100, 100), texture);              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawGUITexture.png)         |
+
 
 
 

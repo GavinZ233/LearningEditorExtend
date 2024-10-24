@@ -238,17 +238,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DrawCube: 0
   DrawWireCube: 0
-  DrawFrustum: 1
+  DrawFrustum: 0
   DrawGUITexture: 0
   DrawIcon: 0
   pic: {fileID: 2800000, guid: b528c1b33a65cf94ea74f830b54c9acb, type: 3}
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   DrawLine: 0
   DrawRay: 0
-  DrawMesh: 1
+  DrawMesh: 0
   DrawWireMesh: 0
   DrawSphere: 0
-  DrawWireSphere: 0
+  DrawWireSphere: 1
   fov: 37.4
   maxRange: 22.4
   minRange: 2.9

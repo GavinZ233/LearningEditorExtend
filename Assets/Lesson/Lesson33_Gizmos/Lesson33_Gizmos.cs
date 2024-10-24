@@ -41,7 +41,7 @@ namespace Gavin
             Gizmos.color = Color.red;
             if(DrawCube)    Gizmos.DrawCube(transform.position+Vector3.left,Vector3.one);
             Gizmos.color = Color.green;
-            if (DrawWireCube) Gizmos.DrawWireCube(transform.position+Vector3.right, Vector3.one);
+            // Gizmos.DrawWireCube(transform.position+Vector3.right, Vector3.one);
 
             Gizmos.color = new Color(1,1,1,0.6f);
 
@@ -49,7 +49,7 @@ namespace Gavin
             if (DrawFrustum) Gizmos.DrawFrustum(Vector3.zero , fov, maxRange, minRange, aspect);
 
             Gizmos.matrix = transform.localToWorldMatrix;
-            Gizmos.DrawWireCube(Vector3.zero, new Vector3(1,2, 3));
+            if (DrawWireCube) Gizmos.DrawWireCube(Vector3.zero, new Vector3(1,2, 3));
         }
 
         private void OnDrawGizmosSelected()
