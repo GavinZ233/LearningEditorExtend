@@ -625,7 +625,7 @@ Editor脚本
 
 - **HandleUtility公共类**
 [HandleUtility官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/HandleUtility.html)       
-using UnityEditor;
+using UnityEditor;      
 
 | 方法/属性                              | 说明                                                           | 示例                                                                                 |
 | -------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
@@ -646,37 +646,47 @@ using UnityEditor;
 - **Gizmos公共类**
 [Gizmos官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/Gizmos.html)           
 using UnityEngine;      
+主要功能为绘制辅助图形。        
 `OnDrawGizmosSelected`为仅选中时执行，`OnDrawGizmos`不需要选中也会执行      
 
 
-| 方法/属性                  | 说明                                                          | 示例                                                                   | 图例 |
-| -------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- | ---- |
-| Gizmos.color               | 设置或获取 Gizmos 绘制的颜色。                                | Gizmos.color = Color.red;                                              |      |
-| Gizmos.matrix              | 设置或获取 Gizmos 使用的变换矩阵。                            | Gizmos.matrix = transform.localToWorldMatrix; 或者Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);                         |   |
-| Gizmos.DrawLine            | 绘制一条从起点到终点的线段。                                  | Gizmos.DrawLine(Vector3.zero, new Vector3(1, 1, 1));                   | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawLine.png)         |
-| Gizmos.DrawRay             | 绘制一条从起点出发的射线。                                    | Gizmos.DrawRay(Vector3.zero, Vector3.forward * 5);                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawRay.png)         |
-| Gizmos.DrawWireCube        | 绘制一个以指定位置为中心的线框立方体。                        | Gizmos.DrawWireCube(Vector3.zero, new Vector3(1, 1, 1));               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireCube.png)         |
-| Gizmos.DrawCube            | 绘制一个以指定位置为中心的实心立方体。                        | Gizmos.DrawCube(Vector3.zero, new Vector3(1, 1, 1));                   |![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawCube.png)          |
-| Gizmos.DrawWireSphere      | 绘制一个以指定位置为中心的线框球体。                          | Gizmos.DrawWireSphere(Vector3.zero, 1.0f);                             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireSphere.png)         |
-| Gizmos.DrawSphere          | 绘制一个以指定位置为中心的实心球体。                          | Gizmos.DrawSphere(Vector3.zero, 1.0f);                                 | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawSphere.png)         |
-| Gizmos.DrawFrustum         | 绘制一个视锥体，模拟摄像机的视角范围。                        | Gizmos.DrawFrustum(Vector3.zero, 60, 5, 1, 1.33f);                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawFrustum.png)         |
-| Gizmos.DrawMesh            | 绘制一个实心网格。                                            | Gizmos.DrawMesh(mesh, position);                                       | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawMesh.png)         |
-| Gizmos.DrawWireMesh        | 绘制一个线框网格。                                            | Gizmos.DrawWireMesh(mesh, position);                                   |![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireMesh.png)          |
-| Gizmos.DrawIcon            | 在场景视图中绘制一个图标，通常用于标记位置。                  | Gizmos.DrawIcon(Vector3.zero, "MyIcon");                               | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawIcon.png)         |
-| Gizmos.DrawGUITexture      | 在屏幕上绘制 2D 纹理。不常用                                        | Gizmos.DrawGUITexture(new Rect(0, 0, 100, 100), texture);              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawGUITexture.png)         |
+| 方法/属性             | 说明                                         | 示例                                                                                                                                  | 图例                                                                                                     |
+| --------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Gizmos.color          | 设置或获取 Gizmos 绘制的颜色。               | Gizmos.color = Color.red;                                                                                                             |                                                                                                          |
+| Gizmos.matrix         | 设置或获取 Gizmos 使用的变换矩阵。           | Gizmos.matrix = transform.localToWorldMatrix; 或者Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one); |                                                                                                          |
+| Gizmos.DrawLine       | 绘制一条从起点到终点的线段。                 | Gizmos.DrawLine(Vector3.zero, new Vector3(1, 1, 1));                                                                                  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawLine.png)       |
+| Gizmos.DrawRay        | 绘制一条从起点出发的射线。                   | Gizmos.DrawRay(Vector3.zero, Vector3.forward * 5);                                                                                    | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawRay.png)        |
+| Gizmos.DrawWireCube   | 绘制一个以指定位置为中心的线框立方体。       | Gizmos.DrawWireCube(Vector3.zero, new Vector3(1, 1, 1));                                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireCube.png)   |
+| Gizmos.DrawCube       | 绘制一个以指定位置为中心的实心立方体。       | Gizmos.DrawCube(Vector3.zero, new Vector3(1, 1, 1));                                                                                  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawCube.png)       |
+| Gizmos.DrawWireSphere | 绘制一个以指定位置为中心的线框球体。         | Gizmos.DrawWireSphere(Vector3.zero, 1.0f);                                                                                            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireSphere.png) |
+| Gizmos.DrawSphere     | 绘制一个以指定位置为中心的实心球体。         | Gizmos.DrawSphere(Vector3.zero, 1.0f);                                                                                                | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawSphere.png)     |
+| Gizmos.DrawFrustum    | 绘制一个视锥体，模拟摄像机的视角范围。       | Gizmos.DrawFrustum(Vector3.zero, 60, 5, 1, 1.33f);                                                                                    | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawFrustum.png)    |
+| Gizmos.DrawMesh       | 绘制一个实心网格。                           | Gizmos.DrawMesh(mesh, position);                                                                                                      | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawMesh.png)       |
+| Gizmos.DrawWireMesh   | 绘制一个线框网格。                           | Gizmos.DrawWireMesh(mesh, position);                                                                                                  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawWireMesh.png)   |
+| Gizmos.DrawIcon       | 在场景视图中绘制一个图标，通常用于标记位置。 | Gizmos.DrawIcon(Vector3.zero, "MyIcon");                                                                                              | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawIcon.png)       |
+| Gizmos.DrawGUITexture | 在屏幕上绘制 2D 纹理。不常用                 | Gizmos.DrawGUITexture(new Rect(0, 0, 100, 100), texture);                                                                             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/gizmos/DrawGUITexture.png) |
 
 
 
 
 ### **EditorUtility公共类**
+[EditorUtility官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/EditorUtility.html)           
+**当前仅为唐老师教授内容，EditorUtility还有很多内容需要后续自行了解**
+| 方法                   | 描述                                                               | 代码示例                                                                                              | 图例                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| DisplayDialog          | 此方法显示模态对话框。                                             | EditorUtility.DisplayDialog("确认窗口","确定吗？","确定")                                             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayDialog.png)          |
+| DisplayDialogComplex   | 显示含有三个按钮的模态对话框。                                     | int result = EditorUtility.DisplayDialogComplex("三键提示", "显示信息", "选项1", "关闭", "选项2");    | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayDialogComplex.png)   |
+| DisplayProgressBar     | 显示或更新进度条。                                                 | EditorUtility.DisplayProgressBar("进度条标题", "进度条窗口显示内容", value);                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayProgressBar.png)     |
+| ClearProgressBar       | 关闭进度条                                                         | EditorUtility.ClearProgressBar();                                                                     | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/ClearProgressBar.png)       |
+| SaveFilePanel          | 显示“保存文件”对话框并返回所选的路径名称。                         | string str = EditorUtility.SaveFilePanel("保存我的文件", Application.dataPath, "Test", "txt");        | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/SaveFilePanel.png)          |
+| SaveFilePanelInProject | 在项目的 Assets 文件夹中显示“保存文件”对话框并返回所选的路径名称。 | string str2 = EditorUtility.SaveFilePanelInProject("保存项目内的文件", "Test2", "png", "自定义文件"); | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/SaveFilePanelInProject.png) |
+| SaveFolderPanel        | 显示“保存文件夹”对话框并返回所选的路径名称。                       | string str3 = EditorUtility.SaveFolderPanel("得到一个存储路径（文件夹）", Application.dataPath, "");  | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/SaveFolderPanel.png)        |
+| OpenFilePanel          | 显示“打开文件”对话框并返回所选的路径名称。                         | string str4 = EditorUtility.OpenFilePanel("得到一个文件路径", Application.dataPath, "txt");           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/OpenFilePanel.png)          |
+| OpenFolderPanel        | 显示“打开文件夹”对话框并返回所选的路径名称。                       | string str4 = EditorUtility.OpenFolderPanel("得到一个文件路径", Application.dataPath, "");            | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/OpenFolderPanel.png)        |
+| CollectDependencies    | 计算并返回 roots 中列出的资源所依赖的所有资源的列表。              | Object[] objs = EditorUtility.CollectDependencies(new Object[] { objTest1 });                         | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/CollectDependencies.png)    |
 
-- **EditorUtility是什么**
 
-- **编辑器默认窗口相关**
 
-- **文件面板相关**
-
-- **其他内容**
 
 ### **AssetDatabase公共类**
 
