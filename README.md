@@ -689,20 +689,37 @@ using UnityEngine;
 
 
 ### **AssetDatabase公共类**
+[AssetDatabase官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/AssetDatabase.html)           
+**当前仅为唐老师教授内容，还有很多方法需要后续自行了解**      
+`自身经验：当批量处理文件时，可尝试获取文件的GUID，再通过GUID做处理，相对于获取路径更加灵活`         
 
-- **AssetDatabase是什么**
+AssetDatabase方法操作的资源都处于`Assets`文件夹下，属于Unity资源路径，超出此范围的操作需要使用`File`即C#的资源操作      
 
-- **AssetDatabase中的常用API**
+| 方法       | 描述           | 代码示例            | 
+| ---------- | --- | --- | 
+| CreateAsset       | 创建资源     | AssetDatabase.CreateAsset(mat, "Assets/Resources/MyMaterial.mat"); | 
+| CreateFolder       | 创建文件夹     | AssetDatabase.CreateFolder("Assets/Resources", "MyTestFolder"); | 
+| CopyAsset       | 拷贝资源     | AssetDatabase.CopyAsset("Assets/FromFolder/pdf.png", "Assets/ToFolder/pdf.png");     | 
+| MoveAsset       | 移动资源     | AssetDatabase.MoveAsset("Assets/FromFolder/pdf.png", "Assets/ToFolder/pdf.png");     | 
+| DeleteAsset       | 删除资源     | AssetDatabase.DeleteAsset("Assets/Resources/pdf.png");  | 
+| DeleteAssets       | 批量删除资源，失败的路径会记录到outFailedPaths中|AssetDatabase.DeleteAssets(paths, outFailedPaths); | 
+| GetAssetPath       | 获取资源路径     | AssetDatabase.GetAssetPath(Selection.activeObject)  | 
+| LoadAssetAtPath       | 根据路径加载资源     |  AssetDatabase.LoadAllAssetsAtPath(assetPath); | 
+| LoadAllAssetsAtPath       | 根据路径加载所有资源,一般可以用来加载图集资源，返回值为Object数据。 如果是图集，第一个为图集本身，之后的便是图集中的所有Sprite     |  AssetDatabase.Refresh();  | 
+| Refresh       | 刷新，当对资源进行移动、导入、删除等操作后，需要执行刷新     |  AssetDatabase.Refresh();  | 
+| GetImplicitAssetBundleName       | 返回该路径资源所属的AB包名    |  GetImplicitAssetBundleName(assetPath); | 
 
-### **更多内容**
 
-- **PrefabUtility公共类**
 
-- **EditorApplication公共类**
 
-- **CompilationPipeline公共类**
+### **PrefabUtility公共类**
 
-- **AssetImporter和AssetPostprocessor**
+
+### **EditorApplication公共类**
+### **CompilationPipeline公共类**
+### **AssetImporter和AssetPostprocessor**
+
+
 
 ## **实践**
 

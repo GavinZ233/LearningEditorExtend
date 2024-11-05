@@ -45,21 +45,21 @@ namespace Gavin
             //  需要写后缀名
             if (GUILayout.Button("拷贝资源"))
             {
-                AssetDatabase.CopyAsset("Assets/Editor Default Resources/EditorTeach.png", "Assets/Resources/MyTestFolder/EditorTeach.png");
+                AssetDatabase.CopyAsset("Assets/Editor Default Resources/pdf.png", "Assets/Resources/MyTestFolder/pdf.png");
             }
 
             //4.移动资源，路径从 Assets/...开始
             //  AssetDatabase.MoveAsset(老路径, 新路径);
             if (GUILayout.Button("移动资源"))
             {
-                AssetDatabase.MoveAsset("Assets/Resources/MyTestFolder/EditorTeach.png", "Assets/Resources/EditorTeach.png");
+                AssetDatabase.MoveAsset("Assets/Resources/MyTestFolder/pdf.png", "Assets/Resources/pdf.png");
             }
 
             //5.删除资源，路径从 Assets/...开始
             //  AssetDatabase.DeleteAsset(资源路径)
             if (GUILayout.Button("删除资源"))
             {
-                AssetDatabase.DeleteAsset("Assets/Resources/EditorTeach.png");
+                AssetDatabase.DeleteAsset("Assets/Resources/pdf.png");
             }
 
             //6.批量删除资源，路径从 Assets/...开始
@@ -67,7 +67,7 @@ namespace Gavin
             if (GUILayout.Button("批量删除资源"))
             {
                 List<string> failList = new List<string>();
-                AssetDatabase.DeleteAssets(new string[] { "Assets/Resources/EditorTeach.png", "Assets/Resources/EditorTeach2.png" }, failList);
+                AssetDatabase.DeleteAssets(new string[] { "Assets/Resources/pdf.png", "Assets/Resources/pdf2.png" }, failList);
                 for (int i = 0; i < failList.Count; i++)
                 {
                     Debug.Log(failList[i]);
@@ -85,7 +85,7 @@ namespace Gavin
             //  AssetDatabase.LoadAssetAtPath(资源路径)
             if (GUILayout.Button("加载资源"))
             {
-                Texture txt = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Resources/EditorTeach.png");
+                Texture txt = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Resources/pdf.png");
                 Debug.Log(txt.name);
             }
 
