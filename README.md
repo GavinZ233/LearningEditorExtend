@@ -672,18 +672,18 @@ using UnityEngine;
 ### **EditorUtility公共类**
 [EditorUtility官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/EditorUtility.html)           
 **当前仅为唐老师教授内容，EditorUtility还有很多内容需要后续自行了解**
-| 方法                   | 描述                                                               | 代码示例                                                                                              | 图例                                                                                                                    |
-| ---------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| DisplayDialog          | 此方法显示模态对话框。                                             | EditorUtility.DisplayDialog("确认窗口","确定吗？","确定")                                             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayDialog.png)          |
-| DisplayDialogComplex   | 显示含有三个按钮的模态对话框。                                     | int result = EditorUtility.DisplayDialogComplex("三键提示", "显示信息", "选项1", "关闭", "选项2");    | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayDialogComplex.png)   |
-| DisplayProgressBar     | 显示或更新进度条。                                                 | EditorUtility.DisplayProgressBar("进度条标题", "进度条窗口显示内容", value);                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayProgressBar.png)     |
-| ClearProgressBar       | 关闭进度条                                                         | EditorUtility.ClearProgressBar();                                                                     |      |
-| SaveFilePanel          | 显示“保存文件”对话框并返回所选的路径名称。                         | string str = EditorUtility.SaveFilePanel("保存我的文件", Application.dataPath, "Test", "txt");        | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/SaveFilePanel.png)          |
-| SaveFilePanelInProject | 在项目的 Assets 文件夹中显示“保存文件”对话框并返回所选的路径名称。 | string str2 = EditorUtility.SaveFilePanelInProject("保存项目内的文件", "Test2", "png", "自定义文件"); | |
-| SaveFolderPanel        | 显示“保存文件夹”对话框并返回所选的路径名称。                       | string str3 = EditorUtility.SaveFolderPanel("得到一个存储路径（文件夹）", Application.dataPath, "");  |     |
-| OpenFilePanel          | 显示“打开文件”对话框并返回所选的路径名称。                         | string str4 = EditorUtility.OpenFilePanel("得到一个文件路径", Application.dataPath, "txt");           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/OpenFilePanel.png)          |
-| OpenFolderPanel        | 显示“打开文件夹”对话框并返回所选的路径名称。                       | string str4 = EditorUtility.OpenFolderPanel("得到一个文件路径", Application.dataPath, "");            |         |
-| CollectDependencies    | 计算并返回 roots 中列出的资源所依赖的所有资源的列表。              | Object[] objs = EditorUtility.CollectDependencies(new Object[] { objTest1 });                         | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/CollectDependencies.png)    |
+| 方法                   | 描述                                                               | 代码示例                                                                                              | 图例                                                                                                                  |
+| ---------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| DisplayDialog          | 此方法显示模态对话框。                                             | EditorUtility.DisplayDialog("确认窗口","确定吗？","确定")                                             | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayDialog.png)        |
+| DisplayDialogComplex   | 显示含有三个按钮的模态对话框。                                     | int result = EditorUtility.DisplayDialogComplex("三键提示", "显示信息", "选项1", "关闭", "选项2");    | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayDialogComplex.png) |
+| DisplayProgressBar     | 显示或更新进度条。                                                 | EditorUtility.DisplayProgressBar("进度条标题", "进度条窗口显示内容", value);                          | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/DisplayProgressBar.png)   |
+| ClearProgressBar       | 关闭进度条                                                         | EditorUtility.ClearProgressBar();                                                                     |                                                                                                                       |
+| SaveFilePanel          | 显示“保存文件”对话框并返回所选的路径名称。                         | string str = EditorUtility.SaveFilePanel("保存我的文件", Application.dataPath, "Test", "txt");        | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/SaveFilePanel.png)        |
+| SaveFilePanelInProject | 在项目的 Assets 文件夹中显示“保存文件”对话框并返回所选的路径名称。 | string str2 = EditorUtility.SaveFilePanelInProject("保存项目内的文件", "Test2", "png", "自定义文件"); |                                                                                                                       |
+| SaveFolderPanel        | 显示“保存文件夹”对话框并返回所选的路径名称。                       | string str3 = EditorUtility.SaveFolderPanel("得到一个存储路径（文件夹）", Application.dataPath, "");  |                                                                                                                       |
+| OpenFilePanel          | 显示“打开文件”对话框并返回所选的路径名称。                         | string str4 = EditorUtility.OpenFilePanel("得到一个文件路径", Application.dataPath, "txt");           | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/OpenFilePanel.png)        |
+| OpenFolderPanel        | 显示“打开文件夹”对话框并返回所选的路径名称。                       | string str4 = EditorUtility.OpenFolderPanel("得到一个文件路径", Application.dataPath, "");            |                                                                                                                       |
+| CollectDependencies    | 计算并返回 roots 中列出的资源所依赖的所有资源的列表。              | Object[] objs = EditorUtility.CollectDependencies(new Object[] { objTest1 });                         | ![Image](https://github.com/GavinZ233/Learning-EditorExtend/raw/dev/Other/Img/editorUtility/CollectDependencies.png)  |
 
 
 
@@ -695,28 +695,52 @@ using UnityEngine;
 
 AssetDatabase方法操作的资源都处于`Assets`文件夹下，属于Unity资源路径，超出此范围的操作需要使用`File`即C#的资源操作      
 
-| 方法       | 描述           | 代码示例            | 
-| ---------- | --- | --- | 
-| CreateAsset       | 创建资源     | AssetDatabase.CreateAsset(mat, "Assets/Resources/MyMaterial.mat"); | 
-| CreateFolder       | 创建文件夹     | AssetDatabase.CreateFolder("Assets/Resources", "MyTestFolder"); | 
-| CopyAsset       | 拷贝资源     | AssetDatabase.CopyAsset("Assets/FromFolder/pdf.png", "Assets/ToFolder/pdf.png");     | 
-| MoveAsset       | 移动资源     | AssetDatabase.MoveAsset("Assets/FromFolder/pdf.png", "Assets/ToFolder/pdf.png");     | 
-| DeleteAsset       | 删除资源     | AssetDatabase.DeleteAsset("Assets/Resources/pdf.png");  | 
-| DeleteAssets       | 批量删除资源，失败的路径会记录到outFailedPaths中|AssetDatabase.DeleteAssets(paths, outFailedPaths); | 
-| GetAssetPath       | 获取资源路径     | AssetDatabase.GetAssetPath(Selection.activeObject)  | 
-| LoadAssetAtPath       | 根据路径加载资源     |  AssetDatabase.LoadAllAssetsAtPath(assetPath); | 
-| LoadAllAssetsAtPath       | 根据路径加载所有资源,一般可以用来加载图集资源，返回值为Object数据。 如果是图集，第一个为图集本身，之后的便是图集中的所有Sprite     |  AssetDatabase.Refresh();  | 
-| Refresh       | 刷新，当对资源进行移动、导入、删除等操作后，需要执行刷新     |  AssetDatabase.Refresh();  | 
-| GetImplicitAssetBundleName       | 返回该路径资源所属的AB包名    |  GetImplicitAssetBundleName(assetPath); | 
+| 方法                       | 描述                                                                                                                           | 代码示例                                                                         |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| CreateAsset                | 创建资源                                                                                                                       | AssetDatabase.CreateAsset(mat, "Assets/Resources/MyMaterial.mat");               |
+| CreateFolder               | 创建文件夹                                                                                                                     | AssetDatabase.CreateFolder("Assets/Resources", "MyTestFolder");                  |
+| CopyAsset                  | 拷贝资源                                                                                                                       | AssetDatabase.CopyAsset("Assets/FromFolder/pdf.png", "Assets/ToFolder/pdf.png"); |
+| MoveAsset                  | 移动资源                                                                                                                       | AssetDatabase.MoveAsset("Assets/FromFolder/pdf.png", "Assets/ToFolder/pdf.png"); |
+| DeleteAsset                | 删除资源                                                                                                                       | AssetDatabase.DeleteAsset("Assets/Resources/pdf.png");                           |
+| DeleteAssets               | 批量删除资源，失败的路径会记录到outFailedPaths中                                                                               | AssetDatabase.DeleteAssets(paths, outFailedPaths);                               |
+| GetAssetPath               | 获取资源路径                                                                                                                   | AssetDatabase.GetAssetPath(Selection.activeObject)                               |
+| LoadAssetAtPath            | 根据路径加载资源                                                                                                               | AssetDatabase.LoadAllAssetsAtPath(assetPath);                                    |
+| LoadAllAssetsAtPath        | 根据路径加载所有资源,一般可以用来加载图集资源，返回值为Object数据。 如果是图集，第一个为图集本身，之后的便是图集中的所有Sprite | AssetDatabase.Refresh();                                                         |
+| Refresh                    | 刷新，当对资源进行移动、导入、删除等操作后，需要执行刷新                                                                       | AssetDatabase.Refresh();                                                         |
+| GetImplicitAssetBundleName | 返回该路径资源所属的AB包名                                                                                                     | GetImplicitAssetBundleName(assetPath);                                           |
 
 
 
 
 ### **PrefabUtility公共类**
+[PrefabUtility官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/PrefabUtility.html)           
+**当前仅为唐老师教授内容，还有很多方法需要后续自行了解**      
+
+
+
+| 方法 | 描述 | 代码示例 |
+| ---- | ---- | -------- |
+|SaveAsPrefabAsset  | 在给定路径上，从给定的游戏对象创建一个预制件资源   |   PrefabUtility.SaveAsPrefabAsset(obj, savePath);   |
+|LoadPrefabContents  | （获得一个预制体实例化的GameObject）将给定路径上的预制件资源加载到孤立场景中，并返回预制件的根游戏对象。   |   GameObject testObj = PrefabUtility.LoadPrefabContents(loadPath);  |
+|UnloadPrefabContents  | 从内存中释放以前随 LoadPrefabContents 加载的预制件的内容。   |   PrefabUtility.UnloadPrefabContents(testObj);  |
+|SavePrefabAsset  | （针对预制体资源）使用此函数将内存中存在的现有预制件资源版本保存回磁盘。   |   PrefabUtility.SavePrefabAsset(testObj); |
+|InstantiatePrefab  | 将给定场景中的给定预制件实例化。   |   PrefabUtility.InstantiatePrefab(testObj);  |        
+
+
+`LoadPrefabContents`此方法方便代码修改预制体，此时是实例化的，需要SaveAsPrefabAsset才能保存。
+
+
+
+
+
 
 
 ### **EditorApplication公共类**
+
+
 ### **CompilationPipeline公共类**
+
+
 ### **AssetImporter和AssetPostprocessor**
 
 
