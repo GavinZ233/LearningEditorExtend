@@ -718,24 +718,64 @@ AssetDatabase方法操作的资源都处于`Assets`文件夹下，属于Unity资
 
 
 
-| 方法 | 描述 | 代码示例 |
-| ---- | ---- | -------- |
-|SaveAsPrefabAsset  | 在给定路径上，从给定的游戏对象创建一个预制件资源   |   PrefabUtility.SaveAsPrefabAsset(obj, savePath);   |
-|LoadPrefabContents  | （获得一个预制体实例化的GameObject）将给定路径上的预制件资源加载到孤立场景中，并返回预制件的根游戏对象。   |   GameObject testObj = PrefabUtility.LoadPrefabContents(loadPath);  |
-|UnloadPrefabContents  | 从内存中释放以前随 LoadPrefabContents 加载的预制件的内容。   |   PrefabUtility.UnloadPrefabContents(testObj);  |
-|SavePrefabAsset  | （针对预制体资源）使用此函数将内存中存在的现有预制件资源版本保存回磁盘。   |   PrefabUtility.SavePrefabAsset(testObj); |
-|InstantiatePrefab  | 将给定场景中的给定预制件实例化。   |   PrefabUtility.InstantiatePrefab(testObj);  |        
+| 方法                 | 描述                                                                                                     | 代码示例                                                         |
+| -------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| SaveAsPrefabAsset    | 在给定路径上，从给定的游戏对象创建一个预制件资源                                                         | PrefabUtility.SaveAsPrefabAsset(obj, savePath);                  |
+| LoadPrefabContents   | （获得一个预制体实例化的GameObject）将给定路径上的预制件资源加载到孤立场景中，并返回预制件的根游戏对象。 | GameObject testObj = PrefabUtility.LoadPrefabContents(loadPath); |
+| UnloadPrefabContents | 从内存中释放以前随 LoadPrefabContents 加载的预制件的内容。                                               | PrefabUtility.UnloadPrefabContents(testObj);                     |
+| SavePrefabAsset      | （针对预制体资源）使用此函数将内存中存在的现有预制件资源版本保存回磁盘。                                 | PrefabUtility.SavePrefabAsset(testObj);                          |
+| InstantiatePrefab    | 将给定场景中的给定预制件实例化。                                                                         | PrefabUtility.InstantiatePrefab(testObj);                        |
 
 
 `LoadPrefabContents`此方法方便代码修改预制体，此时是实例化的，需要SaveAsPrefabAsset才能保存。
 
 
 
-
-
-
-
 ### **EditorApplication公共类**
+[EditorApplication官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/EditorApplication.html)           
+
+
+| 方法/属性                                 | 描述                                             | 示例代码                                                     |
+| ----------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------ |
+| EditorApplication.update                  | 每帧更新事件，可以用于在编辑器中执行一些逻辑。   | EditorApplication.update += MyUpdateFunction;                |
+| EditorApplication.hierarchyChanged        | 层级视图变化事件，当场景中的对象发生变化时触发。 | EditorApplication.hierarchyChanged += OnHierarchyChanged;    |
+| EditorApplication.projectChanged          | 项目变化事件，当项目中的资源发生变化时触发。     | EditorApplication.projectChanged += OnProjectChanged;        |
+| EditorApplication.playModeStateChanged    | 编辑器播放状态变化时触发。                       | EditorApplication.playModeStateChanged += OnPlayModeChanged; |
+| EditorApplication.pauseStateChanged       | 编辑器暂停状态变化时触发。                       | EditorApplication.pauseStateChanged += OnPauseStateChanged;  |
+| EditorApplication.isPlaying               | 判断当前是否处于游戏运行状态。                   | bool isPlaying = EditorApplication.isPlaying;                |
+| EditorApplication.isPaused                | 判断当前游戏是否处于暂停状态。                   | bool isPaused = EditorApplication.isPaused;                  |
+| EditorApplication.isCompiling             | 判断Unity编辑器是否正在编译代码。                | bool isCompiling = EditorApplication.isCompiling;            |
+| EditorApplication.isUpdating              | 判断Unity编辑器是否正在刷新AssetDatabase。       | bool isUpdating = EditorApplication.isUpdating;              |
+| EditorApplication.applicationContentsPath | 获取Unity安装目录Data路径。                      | string path = EditorApplication.applicationContentsPath;     |
+| EditorApplication.applicationPath         | 获取Unity安装目录可执行程序路径。                | string path = EditorApplication.applicationPath;             |
+| EditorApplication.Exit(0)                 | 退出Unity编辑器。                                | EditorApplication.Exit(0);                                   |
+| EditorApplication.ExitPlaymode()          | 退出播放模式，切换到编辑模式。                   | EditorApplication.ExitPlaymode();                            |
+| EditorApplication.EnterPlaymode()         | 进入播放模式。                                   | EditorApplication.EnterPlaymode();                           |
+
+
+ ### **EditorSceneManager公共类**
+[EditorSceneManager官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/SceneManagement.EditorSceneManager.html)           
+
+
+| 方法/属性                           | 描述                           | 示例代码                                                        |
+| ----------------------------------- | ------------------------------ | --------------------------------------------------------------- |
+| EditorSceneManager.NewScene()       | 创建一个新的场景。             | EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects);  |
+| EditorSceneManager.OpenScene()      | 打开一个现有场景。             | EditorSceneManager.OpenScene("Assets/Scenes/MyScene.unity");    |
+| EditorSceneManager.SaveScene()      | 保存当前场景。                 | EditorSceneManager.SaveScene(SceneManager.GetActiveScene());    |
+| EditorSceneManager.SaveSceneAs()    | 另存为新的场景。               | EditorSceneManager.SaveSceneAs("Assets/Scenes/NewScene.unity"); |
+| EditorSceneManager.GetActiveScene() | 获取当前活动场景。             | Scene currentScene = EditorSceneManager.GetActiveScene();       |
+| EditorSceneManager.SetActiveScene() | 设置当前活动场景。             | EditorSceneManager.SetActiveScene(scene);                       |
+| EditorSceneManager.sceneCount       | 获取当前已加载场景的数量。     | int sceneCount = EditorSceneManager.sceneCount;                 |
+| EditorSceneManager.GetSceneAt()     | 获取指定索引的已加载场景。     | Scene scene = EditorSceneManager.GetSceneAt(0);                 |
+| EditorSceneManager.sceneOpened      | 当一个场景被打开时触发的事件。 | EditorSceneManager.sceneOpened += OnSceneOpened;                |
+| EditorSceneManager.sceneSaved       | 当一个场景被保存时触发的事件。 | EditorSceneManager.sceneSaved += OnSceneSaved;                  |
+| EditorSceneManager.sceneClosing     | 当一个场景关闭时触发的事件。   | EditorSceneManager.sceneClosing += OnSceneClosing;              |
+| EditorSceneManager.sceneUnloaded    | 当一个场景卸载时触发的事件。   | EditorSceneManager.sceneUnloaded += OnSceneUnloaded;            |
+| EditorSceneManager.LoadScene()      | 加载一个场景（在编辑器中）。   | EditorSceneManager.LoadScene("SceneName");                      |
+| EditorSceneManager.MergeScenes()    | 将一个场景合并到另一个场景中。 | EditorSceneManager.MergeScenes(sceneToMerge, targetScene);      |
+
+
+
 
 
 ### **CompilationPipeline公共类**
