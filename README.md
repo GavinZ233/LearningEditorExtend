@@ -803,13 +803,21 @@ using UnityEditor.Compilation;
 
 继承之后，可以对于导入资源后处理    
 
-| **方法** | **描述** | **示例代码** |
-| -------- | -------- | ------------ |
-|          |          |
+| **方法/属性**   | **描述**                                           | **示例代码**                                                |
+| --------------- | -------------------------------------------------- | ----------------------------------------------------------- |
+| `assetImporter` | 对资源导入器的引用。可转为具体的子类，进行资源处理 | TextureImporter importer  = (TextureImporter)assetImporter; |
+| `assetPath`     | 要导入的资源的路径名称。                           | Debug.Log("Importing texture to: " + assetPath);            |
+| context         | 导入上下文。                                       |
+| OnPostprocessAllAssets   | 在完成任意数量的资源导入后（当资源进度条到达末尾时）调用此函数。     |AssetPostprocessor.OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths, bool didDomainReload)|
+| `OnPostprocessTexture`   | 当Texture已完成导入时调用此函数,其他资源同理。    |void OnPostprocessTexture(Texture2D texture)|
+| OnPreprocessAsset   | 将此函数添加到一个子类中，以在导入所有资源之前获取通知。     |void OnPreprocessTexture()|
+| `OnPreprocessTexture`   | 将此函数添加到一个子类中，以在纹理导入器运行之前获取通知,其他资源同理。   |void OnPostprocessTexture(Texture2D texture)|
 
-### **AssetImporter**
-
-
+### **AssetImporter**         
+[AssetPostprocessor官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/AssetImporter.html)                
+是TextureImporter等资源导入器的父类，可从AssetPostprocessor获取父类转化成指定的导入器。       
+导入器序列化后就是对应资源的Inspector面板内容，可通过导入器批量设置资源设置。       
+特殊的[ScriptedImporter自定义资源导入器](https://docs.unity.cn/cn/2021.3/ScriptReference/AssetImporters.ScriptedImporter.html)，需要自己继承实现逻辑
 
 
 
