@@ -751,37 +751,67 @@ AssetDatabase方法操作的资源都处于`Assets`文件夹下，属于Unity资
 | EditorApplication.Exit(0)                 | 退出Unity编辑器。                                | EditorApplication.Exit(0);                                   |
 | EditorApplication.ExitPlaymode()          | 退出播放模式，切换到编辑模式。                   | EditorApplication.ExitPlaymode();                            |
 | EditorApplication.EnterPlaymode()         | 进入播放模式。                                   | EditorApplication.EnterPlaymode();                           |
+| EditorApplication.Beep()                  | 播放系统提示声。                                 | EditorApplication.Beep();                                    |
 
 
  ### **EditorSceneManager公共类**
 [EditorSceneManager官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/SceneManagement.EditorSceneManager.html)           
 
 
-| 方法/属性                           | 描述                           | 示例代码                                                        |
-| ----------------------------------- | ------------------------------ | --------------------------------------------------------------- |
-| EditorSceneManager.NewScene()       | 创建一个新的场景。             | EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects);  |
-| EditorSceneManager.OpenScene()      | 打开一个现有场景。             | EditorSceneManager.OpenScene("Assets/Scenes/MyScene.unity");    |
-| EditorSceneManager.SaveScene()      | 保存当前场景。                 | EditorSceneManager.SaveScene(SceneManager.GetActiveScene());    |
-| EditorSceneManager.SaveSceneAs()    | 另存为新的场景。               | EditorSceneManager.SaveSceneAs("Assets/Scenes/NewScene.unity"); |
-| EditorSceneManager.GetActiveScene() | 获取当前活动场景。             | Scene currentScene = EditorSceneManager.GetActiveScene();       |
-| EditorSceneManager.SetActiveScene() | 设置当前活动场景。             | EditorSceneManager.SetActiveScene(scene);                       |
-| EditorSceneManager.sceneCount       | 获取当前已加载场景的数量。     | int sceneCount = EditorSceneManager.sceneCount;                 |
-| EditorSceneManager.GetSceneAt()     | 获取指定索引的已加载场景。     | Scene scene = EditorSceneManager.GetSceneAt(0);                 |
-| EditorSceneManager.sceneOpened      | 当一个场景被打开时触发的事件。 | EditorSceneManager.sceneOpened += OnSceneOpened;                |
-| EditorSceneManager.sceneSaved       | 当一个场景被保存时触发的事件。 | EditorSceneManager.sceneSaved += OnSceneSaved;                  |
-| EditorSceneManager.sceneClosing     | 当一个场景关闭时触发的事件。   | EditorSceneManager.sceneClosing += OnSceneClosing;              |
-| EditorSceneManager.sceneUnloaded    | 当一个场景卸载时触发的事件。   | EditorSceneManager.sceneUnloaded += OnSceneUnloaded;            |
-| EditorSceneManager.LoadScene()      | 加载一个场景（在编辑器中）。   | EditorSceneManager.LoadScene("SceneName");                      |
-| EditorSceneManager.MergeScenes()    | 将一个场景合并到另一个场景中。 | EditorSceneManager.MergeScenes(sceneToMerge, targetScene);      |
+| 方法/属性                           | 描述                           | 示例代码                                                       |
+| ----------------------------------- | ------------------------------ | -------------------------------------------------------------- |
+| EditorSceneManager.NewScene()       | 创建一个新的场景。             | EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects); |
+| EditorSceneManager.OpenScene()      | 打开一个现有场景。             | EditorSceneManager.OpenScene("Assets/Scenes/MyScene.unity");   |
+| EditorSceneManager.SaveScene()      | 保存当前场景。                 | EditorSceneManager.SaveScene(SceneManager.GetActiveScene());   |
+| EditorSceneManager.GetActiveScene() | 获取当前活动场景。             | Scene currentScene = EditorSceneManager.GetActiveScene();      |
+| EditorSceneManager.SetActiveScene() | 设置当前活动场景。             | EditorSceneManager.SetActiveScene(scene);                      |
+| EditorSceneManager.sceneCount       | 获取当前已加载场景的数量。     | int sceneCount = EditorSceneManager.sceneCount;                |
+| EditorSceneManager.GetSceneAt()     | 获取指定索引的已加载场景。     | Scene scene = EditorSceneManager.GetSceneAt(0);                |
+| EditorSceneManager.sceneOpened      | 当一个场景被打开时触发的事件。 | EditorSceneManager.sceneOpened += OnSceneOpened;               |
+| EditorSceneManager.sceneSaved       | 当一个场景被保存时触发的事件。 | EditorSceneManager.sceneSaved += OnSceneSaved;                 |
+| EditorSceneManager.sceneClosing     | 当一个场景关闭时触发的事件。   | EditorSceneManager.sceneClosing += OnSceneClosing;             |
+| EditorSceneManager.sceneUnloaded    | 当一个场景卸载时触发的事件。   | EditorSceneManager.sceneUnloaded += OnSceneUnloaded;           |
+| EditorSceneManager.LoadScene()      | 加载一个场景（在编辑器中）。   | EditorSceneManager.LoadScene("SceneName");                     |
+| EditorSceneManager.MergeScenes()    | 将一个场景合并到另一个场景中。 | EditorSceneManager.MergeScenes(sceneToMerge, targetScene);     |
 
 
 
 
 
 ### **CompilationPipeline公共类**
+[CompilationPipeline官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/Compilation.CompilationPipeline.html)           
+目前仅前两个方法适合大多数情况，获取是否编译完成。          
+using UnityEditor.Compilation;
 
 
-### **AssetImporter和AssetPostprocessor**
+| **方法/属性**                                   | **描述**                                 | **返回值/类型**                   |
+| ----------------------------------------------- | ---------------------------------------- | --------------------------------- |
+| `assemblyCompilationFinished`                   | 当一个程序集编译结束时会调用该回调函数。 | Action<string, CompilerMessage[]> |
+| `compilationFinished`                           | 当所有程序集编译结束时会调用该回调函数。 | ActiveBuildStatus                 |
+| GetAssemblies()                                 | 获取当前项目的所有程序集信息。           | Assembly[]                        |
+| GetAssemblyDefinitionFilePathFromAssemblyName() | 通过程序集名称获取其定义文件的路径。     | string                            |
+| GetAssemblyDefinitionPlatformName()             | 获取程序集定义的目标平台名称。           | string                            |
+| GetAssemblyDefinitionReferences()               | 获取程序集定义文件的引用列表。           | string[]                          |
+| GetCustomScriptAssemblies()                     | 获取自定义脚本程序集。                   | CustomScriptAssembly[]            |
+| GetPrecompiledAssemblyPaths()                   | 获取指定编译选项的预编译程序集路径。     | string[]                          |
+| GetTargetAssemblies()                           | 获取当前目标的程序集集合。               | TargetAssembly[]                  |
+| RequestScriptCompilation()                      | 请求触发脚本重新编译。                   | void                              |
+
+
+### **AssetPostprocessor**        
+[AssetPostprocessor官方文档](https://docs.unity.cn/cn/2021.3/ScriptReference/AssetPostprocessor.html)           
+
+继承之后，可以对于导入资源后处理    
+
+| **方法** | **描述** | **示例代码** |
+| -------- | -------- | ------------ |
+|          |          |
+
+### **AssetImporter**
+
+
+
+
 
 
 
